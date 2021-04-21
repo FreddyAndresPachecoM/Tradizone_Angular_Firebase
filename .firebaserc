@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tradizone-4410c": {
+      "hosting": {
+        "TradizoneAngularFirebase": [
+          "tradizone-4410c"
+        ]
+      }
+    }
+  }
+}
