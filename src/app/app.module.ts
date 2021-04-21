@@ -10,11 +10,19 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './components/home/home.component';
+import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
+import { RegistroRestaurautesComponent } from './components/restaurantes/registro-restaurautes/registro-restaurautes.component';
+import { CatalogoRestaurautesComponent } from './components/restaurantes/catalogo-restaurautes/catalogo-restaurautes.component';
+import { LoginComponent } from './components/usuarios/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RegistroUsuariosComponent,
+    RegistroRestaurautesComponent,
+    CatalogoRestaurautesComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
