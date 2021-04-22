@@ -1,1 +1,34 @@
 <p>registro-usuarios works!</p>
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3>Registro Usuario</h3>
+                    <form class="mt-4" [formGroup]="createUserForm" (ngSubmit)="agregarEditarUsuario()">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control form-control-lg" formControlName="name"
+                                    placeholder="Name" id="name">
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control form-control-lg" formControlName="email"
+                                    placeholder="Email" id="email">
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control form-control-lg mt-3" formControlName="password"
+                                    placeholder="Password" id="password">
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <button type="text" class="btn btn-secondary btn-lg mr-3"
+                                routerLink="#">Volver</button>
+                            <button type="submit" class="btn btn-dark btn-lg">Agregar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
