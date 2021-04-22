@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/model/usuario2'
-import { UsuarioService } from 'src/app/servicio/usuario.service'
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-registro-usuarios',
@@ -12,42 +11,31 @@ import { UsuarioService } from 'src/app/servicio/usuario.service'
 })
 export class RegistroUsuariosComponent implements OnInit {
 
-  createUserForm: FormGroup;
-  user: Usuario;
+  formularioRegistro = new FormGroup({
+    correo: new FormControl(''),
+    contrasena: new FormControl('')
+  });
 
-  constructor(private fbstore: AngularFirestore, private router:Router, private userService: UsuarioService) { 
-    this.createUserForm = this.createFormGroup(); 
+  constructor(private fbstore: AngularFirestore, private router:Router,
+                      private authService: AuthService) { 
   }
 
   ngOnInit(): void {
   }
 
-  createFormGroup(): FormGroup{
-    return new FormGroup({
-      name: new FormControl('',Validators.required),
-      email: new FormControl('',Validators.required),
-      password: new FormControl('',Validators.required)
-    });
-  }
-
   resetFormulario(){
-    this.createUserForm.reset();
+    this.formularioRegistro.reset();
   }
 
-  agregarEditarUsuario(){
-    this.user= new Usuario;
-    this.user.name = this.createUserForm.get("name").value;
-    this.user.email = this.createUserForm.get("email").value;
-    this.user.password = this.createUserForm.get("password").value;
-    
-    this.userService.agregarUsuario(this.user).then(() =>{
-      console.log("El usuario fue egistrado")
-    }).catch(error => {
-      console.log(error)
-    });
+  async registrarUsuario(){
+    const {correo, contrasena} = this.formularioRegistro.value;
+    try {
+      const user = await this.authService.registrarUsuario(correo, contrasena);
+      if(user){
+        this.router.navigate(['/home']);
+      }
+    } catch (error) {
+      
+    }
   }
-
-  get nombre(){return this.createUserForm.get('name')};
-  get email(){return this.createUserForm.get('email')};
-  get password(){return this.createUserForm.get('password')};
 }

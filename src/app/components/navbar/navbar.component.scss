@@ -93,7 +93,8 @@ nav > div > div:hover >ul{
 
 nav > div > p {
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bolder;
 }
 nav > div > div > img{
     height: 50px;
@@ -121,16 +122,6 @@ nav > div > div > ul > li{
     margin-bottom: -40px;
 }
 
-nav > div > div > ul > li > button{
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    height: fit-content;
-}
-
-nav > div > div > ul > li > button:hover{
-    color: darkslategrey;
+nav > div > div > ul > li{
+    cursor: pointer;
 }

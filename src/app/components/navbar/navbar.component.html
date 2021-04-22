@@ -17,23 +17,24 @@
         <li><a href="">Nosotros</a></li>
     </ul>
 
-    <!--  ------------- Botones Login y Registro ------------- -->
-    <div class="contenedor-sesion">
-        <a class="btn-registro" href="usuario-registro">Registrarse</a>
-        <a href="login">Iniciar Sesión</a>
-    </div>
-
     <!--  ------------- Submenu cuenta usuario ------------- -->
-
-    <div class="contenedor-sesion" *ngIf="usuario != null" >
-        <p>Christian Eduardo Mendieta Tenesaca</p>
+    <div class="contenedor-sesion" *ngIf="user$ | async as user; else sesion">
+        <p>{{user?.email}}</p>
         <div>
             <img src="../../../assets/img/perfil_por_defecto.png" alt="">
             <ul>
                 <li><a href=""> <i class="fas fa-chalkboard"></i> Tablero</a></li>
                 <li><a href=""> <i class="fas fa-bahai"></i> Configuración</a></li>
-                <li><button> <i class="fas fa-sign-out-alt"></i> salir</button></li>
+                <li> <a (click) = "cerrarSesion()"> <i class="fas fa-sign-out-alt"></i> Salir </a></li>
             </ul>
         </div>
     </div>
+
+    <!--  ------------- Botones Login y Registro ------------- -->
+    <ng-template #sesion>
+        <div class="contenedor-sesion" >
+            <a class="btn-registro" href="usuario-registro">Registrarse</a>
+            <a href="login">Iniciar Sesión</a>
+        </div>
+    </ng-template>
 </nav>
