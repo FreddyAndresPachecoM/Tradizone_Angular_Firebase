@@ -1,1 +1,10 @@
-<p>login works!</p>
+<div class="contenedor-principal">
+    <h1>Login</h1>
+    <form [formGroup] = "formularioLogin"  (ngSubmit) = "iniciarSesion()">
+        <input class="input-txt" type="email" placeholder="Correo:" formControlName = "correo">
+        <input class="input-txt" type="password" placeholder="Contraseña:" formControlName = "contrasena">
+        <input class="input-btn" type="submit">
+    </form>
+    <button> <i class="fab fa-google"></i>  Login con Google</button>
+    <a href="usuario-registro">¡No tengo una cuenta!</a>
+</div>

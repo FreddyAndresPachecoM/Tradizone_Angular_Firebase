@@ -5,10 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 /** ----------------------------- FIREBASE ----------------------------- */
+import { ReactiveFormsModule } from '@angular/forms';
+
+/** ----------------------------- FIREBASE ----------------------------- */
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment';
+
+/** ----------------------------- COMPONENTES ----------------------------- */
 import { HomeComponent } from './components/home/home.component';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { RegistroRestaurautesComponent } from './components/restaurantes/registro-restaurautes/registro-restaurautes.component';
@@ -31,7 +36,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
