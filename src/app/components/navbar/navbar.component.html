@@ -1,0 +1,39 @@
+<nav>
+    <div>
+        <a href="home"><img src="../../../assets/img/logo_tradizone.gif" ></a>
+    </div>
+    <ul>
+        <li><a href="">Historia</a></li>
+        <li><a href="">Eventos</a></li>
+        <li><a href="">Restaurantes</a></li>
+        <li class="contenedor-submenu">
+            <a href="">menu</a>
+            <ul>
+                <li><a href=""> <i class="fas fa-utensils"></i> Comida</a></li>
+                <li><a href=""> <i class="fas fa-coffee"></i> Bebida</a></li>
+                <li><a href=""> <i class="fas fa-book-open"></i> Recetas</a></li>
+            </ul>
+        </li>
+        <li><a href="">Nosotros</a></li>
+    </ul>
+
+    <!--  ------------- Botones Login y Registro ------------- -->
+    <div class="contenedor-sesion">
+        <a class="btn-registro" href="usuario-registro">Registrarse</a>
+        <a href="login">Iniciar Sesión</a>
+    </div>
+
+    <!--  ------------- Submenu cuenta usuario ------------- -->
+
+    <div class="contenedor-sesion" *ngIf="usuario != null" >
+        <p>Christian Eduardo Mendieta Tenesaca</p>
+        <div>
+            <img src="../../../assets/img/perfil_por_defecto.png" alt="">
+            <ul>
+                <li><a href=""> <i class="fas fa-chalkboard"></i> Tablero</a></li>
+                <li><a href=""> <i class="fas fa-bahai"></i> Configuración</a></li>
+                <li><button> <i class="fas fa-sign-out-alt"></i> salir</button></li>
+            </ul>
+        </div>
+    </div>
+</nav>

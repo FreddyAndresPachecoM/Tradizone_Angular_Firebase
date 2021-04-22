@@ -14,6 +14,7 @@ import { RegistroUsuariosComponent } from './components/usuarios/registro-usuari
 import { RegistroRestaurautesComponent } from './components/restaurantes/registro-restaurautes/registro-restaurautes.component';
 import { CatalogoRestaurautesComponent } from './components/restaurantes/catalogo-restaurautes/catalogo-restaurautes.component';
 import { LoginComponent } from './components/usuarios/login/login.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoginComponent } from './components/usuarios/login/login.component';
     RegistroUsuariosComponent,
     RegistroRestaurautesComponent,
     CatalogoRestaurautesComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
