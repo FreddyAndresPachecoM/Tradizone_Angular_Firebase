@@ -2,14 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { first } from 'rxjs/operators';
 
-//import { User } from 'firebase';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
-  //public usuarioFirebase: User;
 
   constructor(public afAuth: AngularFireAuth) { }
 
@@ -25,6 +21,7 @@ export class AuthService {
   async registrarUsuario(correo: string, contrasena: string){
     try {
       const resultado = await this. afAuth.createUserWithEmailAndPassword(correo, contrasena);
+      this.iniciarSesion(correo, contrasena);
       return resultado;
     } catch (error) {
       console.log("Error al registrar usuario");
