@@ -2,6 +2,7 @@
 <div class="contenedor-principal">
     <h1>Registro de Usuarios</h1>
     <form [formGroup] = "formularioRegistro"  (ngSubmit) = "registrarUsuario()">
+        <input class="input-txt" type="text" placeholder="Nombres:" formControlName = "nombre">
         <input class="input-txt" type="email" placeholder="Correo:" formControlName = "correo">
         <input class="input-txt" type="password" placeholder="Contraseña:" formControlName = "contrasena">
         <input class="input-btn" type="submit">
