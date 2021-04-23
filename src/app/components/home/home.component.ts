@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(private fbstore: AngularFirestore) { }
 
   ngOnInit(): void {
-   // this.getCategories();
+   this.getCategories();
   }
 
  /* async getCategories(){
