@@ -1,8 +1,7 @@
 /* -------------------- Generales a todos los elementos del NavBar -------------------- */
 nav {
     display: flex;
-    height: 110px;
-    margin: 0;
+    height: 80px;
     background-color: #5A8FED;
     align-items: center;
 }
@@ -12,7 +11,8 @@ nav ul {
 }
 
 nav > div > a > img {
-    height: 100px;
+    height: 50px;
+    margin: auto auto auto 20px;
 }
 
 nav > ul > li{
@@ -58,27 +58,6 @@ nav > .contenedor-sesion > .btn-registro{
     margin-right: 15px;
     color: #4468a7;
     background-color: white;
-}
-
-/* -------------------- Sub menú de segundo nivel -------------------- */
-nav > ul > li:hover > ul{
-    display: block;
-    top: 100px;
-    position: absolute;
-    background-color: #5A8FED;
-    width: fit-content;
-    width: 80px;
-}
-
-nav > ul > li > ul{
-    display: none;
-}
-
-nav > ul > li > ul > li{
-    width: fit-content;
-    margin-left: -27px;
-    margin-top: -50px;
-    margin-bottom: -40px;
 }
 
 /* -------------------- Caja Datos Usuario -------------------- */
