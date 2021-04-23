@@ -16,7 +16,6 @@ body {
     justify-content: center;
     align-items: center;
     height: auto;
-    background-color: rgba(95, 96, 99, 0.425);
     font-family: 'Nunito', sans-serif;
     margin-top: 50px;
   }
@@ -59,7 +58,9 @@ body {
     margin-right: 75px;
 }
 
-
+.bodyColor{
+  background-color: rgba(105, 104, 102, 0.815);
+}
 .restauranteColor{
   color: aliceblue;
 }

@@ -19,6 +19,7 @@ import { RegistroRestaurautesComponent } from './components/restaurantes/registr
 import { CatalogoRestaurautesComponent } from './components/restaurantes/catalogo-restaurautes/catalogo-restaurautes.component';
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegistroRestaurautesComponent,
     CatalogoRestaurautesComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,
