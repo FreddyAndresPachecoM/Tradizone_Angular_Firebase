@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-<<<<<<< HEAD
-import { Categoria } from 'src/app/model/categoria';
+import { CategoriaI } from 'src/app/model/categoria_i';
 import { Comida } from 'src/app/model/comida';
-=======
->>>>>>> 973ec7930d58c5733646c9bcd76e07494dc8a273
 
 @Component({
   selector: 'app-home',
@@ -13,17 +10,16 @@ import { Comida } from 'src/app/model/comida';
 })
 export class HomeComponent implements OnInit {
 
-<<<<<<< HEAD
   //categorieslist = Array;
 
-  categorias : Array<Categoria>; 
+  categorias : Array<CategoriaI>; 
   comidas: Array<Comida>;
 
-=======
->>>>>>> 973ec7930d58c5733646c9bcd76e07494dc8a273
   constructor(private fbstore: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.getCategories();
+    this.getFoods();
   }
 
  /* async getCategories(){
@@ -43,7 +39,6 @@ export class HomeComponent implements OnInit {
     }
   }*/
 
-<<<<<<< HEAD
   getFoods(){
     this.fbstore.collection("food").snapshotChanges().subscribe(data=>{
       this.comidas = data.map(
@@ -69,7 +64,7 @@ export class HomeComponent implements OnInit {
       data => {
         this.categorias = data.map(
           result => {
-            let categoria = new Categoria;
+            let categoria = new CategoriaI;
             categoria.category_id = result.payload.doc.id;
             categoria.category_name = result.payload.doc.data()["category_name"];
             categoria.category_image = result.payload.doc.data()["category_image"]
@@ -81,6 +76,4 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-=======
->>>>>>> 973ec7930d58c5733646c9bcd76e07494dc8a273
 }

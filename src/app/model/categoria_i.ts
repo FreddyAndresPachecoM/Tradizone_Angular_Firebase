@@ -1,4 +1,4 @@
-export interface CategoriaI {
+export class CategoriaI {
 
     category_id? : string;
     category_name : string;

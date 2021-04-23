@@ -25,23 +25,22 @@
     <br>    
     <br>
     <br>
-    <br>
     <br>    
     <br>
     <br>
-    <div class="contenedorBody">
-        <div class="bodyCardContainer centrarBloque" *ngFor="let food of comidas">
+    <div class="contenedorBody" *ngFor="let food of comidas">
+        <div class="bodyCardContainer centrarBloque">
             <div class="headerBody">
                 <a href="#">
-                    <img class="imgBody" src="{{food.food_image}}">
+                    <img class="imgBody" src="{{food.food_image}}" width="250">
                 </a>                
             </div>
             <div class="descripcionBody">
                 <h2>{{food.food_name}}</h2>
                 <p>{{food.food_description}}</p>
+                <h3 class="restauranteColor">{{food.food_restaurant}}</h3>
             </div>
         </div>
     </div>
-    
 
 </div>

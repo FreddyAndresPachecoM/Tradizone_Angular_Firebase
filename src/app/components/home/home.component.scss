@@ -16,9 +16,9 @@ body {
     justify-content: center;
     align-items: center;
     height: auto;
-    background-color: rgba(51, 52, 54, 0.726);
+    background-color: rgba(95, 96, 99, 0.425);
     font-family: 'Nunito', sans-serif;
-    
+    margin-top: 50px;
   }
 
   .headerBody, .descripcionBody{
@@ -30,7 +30,7 @@ body {
 }
 
 .descripcionBody{
-    text-align: end;
+    text-align: justify;
     background: rgba(108, 179, 245, 0);
     position: inherit;
     align-items: center;
@@ -55,14 +55,25 @@ body {
 
 .descripcionBody p{
     margin-top: 50x;
-    margin-left: 450px;
+    margin-left: 75px;
+    margin-right: 75px;
+}
+
+
+.restauranteColor{
+  color: aliceblue;
+}
+.descripcionBody h3{
+  text-align: end;
+  margin-right: 50px;
+  margin-left: 450px;
 }
 
   .bodyCardContainer{
     display: flex;
     height: 350px;
     width: 1000px;
-    background-color: #ffffff;
+    background-color: #689be9;
     border-radius: 10px;
     box-shadow: -1rem 0 3rem #000;
     margin-left: -50px; 
