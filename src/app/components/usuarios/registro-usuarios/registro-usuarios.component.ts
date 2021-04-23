@@ -38,6 +38,7 @@ export class RegistroUsuariosComponent implements OnInit {
     try {
       const user = await this.authService.registrarUsuario(correo, contrasena);
       if(user){
+        this.usuario['uid'] = user.user.uid;
         this.usuario['displayName'] = nombre;
         this.usuario['email'] = correo;
         this.usuario['emailVerified'] = true;
