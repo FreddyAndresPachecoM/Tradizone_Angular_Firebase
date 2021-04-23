@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Categoria } from 'src/app/model/categoria';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +8,9 @@ import { Categoria } from 'src/app/model/categoria';
 })
 export class HomeComponent implements OnInit {
 
-  //categorieslist = Array;
-
-  categorias : Array<Categoria>; 
-
   constructor(private fbstore: AngularFirestore) { }
 
   ngOnInit(): void {
-   this.getCategories();
   }
 
  /* async getCategories(){
@@ -36,21 +30,4 @@ export class HomeComponent implements OnInit {
     }
   }*/
 
-  getCategories() {
-    this.fbstore.collection("categories").snapshotChanges().subscribe(
-      data => {
-        this.categorias = data.map(
-          result => {
-            let categoria = new Categoria;
-            categoria.category_id = result.payload.doc.id;
-            categoria.category_name = result.payload.doc.data()["category_name"];
-            categoria.category_image = result.payload.doc.data()["category_image"]
-
-            return categoria; 
-          }
-        );
-        
-      }
-    );
-  }
 }
