@@ -10,6 +10,7 @@
 
     <!--  ------------- Submenu cuenta usuario ------------- -->
     <div class="contenedor-sesion" *ngIf="user$ | async as user; else sesion">
+        <a class="btn-registro" href="restaurante-registro">¡Quiero registrar mi restaurante!</a>
         <p>{{user?.email}}</p>
         <div>
             <img src="../../../assets/img/perfil_por_defecto.png" alt="">

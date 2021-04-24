@@ -21,6 +21,9 @@ import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './components/history/history.component';
 
+/** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +41,8 @@ import { HistoryComponent } from './components/history/history.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

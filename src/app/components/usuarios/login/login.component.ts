@@ -26,7 +26,11 @@ export class LoginComponent implements OnInit {
     try{
       const user = this.authService.iniciarSesion(correo, contrasena);
       if(user){
-        this.router.navigate(['/home']);
+        if((await user).user.email != null){
+          this.router.navigate(['/home']);
+        }
+      }else{
+        alert("Correo o contraseña mal ingresados! >:v");
       }
     }catch(error){
 
