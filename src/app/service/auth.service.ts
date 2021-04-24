@@ -14,7 +14,7 @@ export class AuthService {
       const resultado = await this. afAuth.signInWithEmailAndPassword(correo, contrasena);
       return resultado;
     } catch (error) {
-      console.log("Error al iniciar sesion");
+      alert('Correo o contrasena mal escritos!');
     }
   }
 

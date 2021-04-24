@@ -1,1 +1,16 @@
-<p>registro-restaurautes works!</p>
+<div class="contenedor-principal">
+    <h1>Registro de Restaurante</h1>
+    <form [formGroup] = "formularioRegistro"  (ngSubmit) = "registrarRestaurante()">
+        <input class="input-txt" type="text" placeholder="Nombre:" formControlName = "nombre">
+        <input class="input-txt" type="text" placeholder="Descripción:" formControlName = "descripcion">
+        <input class="input-txt" type="text" placeholder="Dirección" formControlName = "direccion">
+        <input class="input-txt" type="number" placeholder="Teléfono:" formControlName = "telefono">
+        <input class="input-txt" type="text" placeholder="Zona:" formControlName = "zona">
+
+        <label for="logo">Selecciona un logo:</label>
+        <input id="logo" type="file" accept=".png, .jpg, .gif" (change) = "subirImagen($event)">
+
+        <input class="input-btn" type="submit">
+    </form>
+    <a href="home">Regresar</a>
+</div>

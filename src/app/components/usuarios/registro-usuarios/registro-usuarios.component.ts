@@ -14,6 +14,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 export class RegistroUsuariosComponent implements OnInit {
 
   usuario: any = {};
+  existeUsuario: any = null;
 
   formularioRegistro = new FormGroup({
     nombre: new FormControl(''),
@@ -42,12 +43,16 @@ export class RegistroUsuariosComponent implements OnInit {
         this.usuario['displayName'] = nombre;
         this.usuario['email'] = correo;
         this.usuario['emailVerified'] = true;
-        this.usuarioService.crearUsuario(this.usuario);
+        this.existeUsuario = this.usuarioService.crearUsuario(this.usuario);
         alert('¡Registrado correctamente!');
         this.router.navigate(['/home']);
       }
     } catch (error) {
       alert('¡Lo siento tenemos problemas :C!');
+    }
+
+    if(!this.existeUsuario){
+      alert("ya existe un usuario con este correo: "+correo);
     }
 
   }

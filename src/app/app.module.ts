@@ -22,6 +22,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './components/history/history.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 
+/** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,8 @@ import { FormularioPlatoComponent } from './components/platos/formulario-plato/f
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
