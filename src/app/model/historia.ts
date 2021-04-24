@@ -4,4 +4,5 @@ export class Historia{
     history_food_name: string;
     history_title: string;
     history_user_name: string;
+    history_url_image:string;
 }

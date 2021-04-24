@@ -1,14 +1,20 @@
 <div>
-    <header>
+    <header style="text-align: center;">
         <h1>Gastronomía Cuencana</h1>
         <img src="https://i.ytimg.com/vi/G1CrsRMZH3o/maxresdefault.jpg" alt="" width="1000">
+    </header>
+    <body>
         <p>Se unen tanto entre nosotros, que casi se podría parafrasear así el adagio popular: “dime qué festejas y te diré qué comes”. Es importante la presencia del maíz en la preparación de muchas comidas como el tamal, el mote pata, el mote pillo y bebidas como la chicha, el rosero y el morocho.</p>
         <p>Diciembre es ideal para venir a Cuenca. Todo el color de la religiosidad popular y el neo-barroco estallan el 24, en el Pase de Niño. Sus reminiscencias solares las subraya el ritual de la chicha brindada a los priostes y a los asistentes, además del pan tradicional de la pascua navideña.</p>
-    </header>
+    </body>
 </div>
 <div class="container" *ngFor="let historia of historias">
-    <h2>{{historia.history_title}}</h2>
-    <h3>{{historia.history_food_name}}</h3>
-    <p>{{historia.history_description}}</p>
+    <input type="checkbox" id="spoiler{{historia.history_id}}"/>
+    <label for="spoiler{{historia.history_id}}"><h2>{{historia.history_title}}</h2></label>
+    <div class="spoiler">
+        <img src="{{historia.history_url_image}}" alt="" width="400">
+        <h3>{{historia.history_food_name}}</h3>    
+        <p>{{historia.history_description}}</p>
+    </div>
 
 </div>

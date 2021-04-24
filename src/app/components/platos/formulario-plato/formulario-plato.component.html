@@ -1,0 +1,23 @@
+<div class="contenedor-principal">
+    <h1>Formulario Platos</h1>
+    <form [formGroup] = "">
+        <input class="input-txt" type="text" placeholder="Nombre: " formControlName = "nombre">
+        <input class="input-txt" type="text" placeholder="Categoria: " formControlName = "categoria" disabled>
+        <div>
+            <select name="" id="" aria-label="Desfault select">
+                <option value="categoria.category_id" *ngFor="let categoria of categorias">{{categoria.category_name}}</option>
+            </select>
+        </div>
+        <input class="input-txt" type="text" placeholder="Descripcion: " formControlName = "descripcion">
+        <input class="input-txt" type="text" placeholder="Costo: " formControlName = "costo">
+        <input class="input-txt" type="text" placeholder="Restaurante: " formControlName = "restaurante" disabled>
+        <div>
+            <select name="" id="" aria-label="Desfault select">
+                <option value="restaurante.restaurant_name" *ngFor="let restaurante of restaurantes">{{restaurante.restaurant_name}}</option>
+            </select>
+        </div>
+        <input class="input-txt" type="text" placeholder="Imagen: " formControlName = "imagen">
+
+        <input class="input-btn" type="submit">
+    </form>
+</div>

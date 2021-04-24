@@ -20,6 +20,7 @@ import { CatalogoRestaurautesComponent } from './components/restaurantes/catalog
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './components/history/history.component';
+import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 
 /** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
 import { AngularFireStorageModule } from '@angular/fire/storage';
@@ -33,7 +34,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     CatalogoRestaurautesComponent,
     LoginComponent,
     NavbarComponent,
-    HistoryComponent
+    HistoryComponent,
+    FormularioPlatoComponent
   ],
   imports: [
     BrowserModule,
