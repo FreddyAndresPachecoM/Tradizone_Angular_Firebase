@@ -20,6 +20,7 @@ import { CatalogoRestaurautesComponent } from './components/restaurantes/catalog
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './components/history/history.component';
+import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HistoryComponent } from './components/history/history.component';
     CatalogoRestaurautesComponent,
     LoginComponent,
     NavbarComponent,
-    HistoryComponent
+    HistoryComponent,
+    FormularioPlatoComponent
   ],
   imports: [
     BrowserModule,

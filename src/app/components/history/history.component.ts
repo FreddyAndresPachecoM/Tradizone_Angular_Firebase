@@ -27,6 +27,7 @@ export class HistoryComponent implements OnInit {
           historia.history_food_name = result.payload.doc.data()["history_food_name"];
           historia.history_title = result.payload.doc.data()["history_title"];
           historia.history_user_name = result.payload.doc.data()["history_user_name"];
+          historia.history_url_image = result.payload.doc.data()["history_url_image"];
           return historia;
         }
       )
