@@ -4,6 +4,8 @@ import { HistoryComponent } from './pages/history/history.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 import { RegistroRestaurautesComponent } from './components/restaurantes/registro-restaurautes/registro-restaurautes.component';
+import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
+import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'historia', component: HistoryComponent},
   { path: 'plato-registro', component: FormularioPlatoComponent},
   { path: 'evento-registro', component: FormularioEventosComponent},
+  { path: 'tablero-cuenta', component: TableroCuentaComponent},
+  { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

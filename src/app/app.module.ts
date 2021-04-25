@@ -21,10 +21,16 @@ import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
+import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
+import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
+
+/** -------- FORMULARIOS -------- */
 import { FormsModule } from '@angular/forms'
 
 /** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
 import { AngularFireStorageModule } from '@angular/fire/storage';
+
+/** --------- Buscador en tiempo real  ---------*/
 import { FilterPipe } from './pipes/filter.pipe';
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
@@ -42,7 +48,10 @@ import { FormularioEventosComponent } from './components/eventos/formulario-even
     FormularioPlatoComponent,
     FilterPipe,
     EventosComponent,
-    FormularioEventosComponent
+    FormularioEventosComponent,
+    ConfiguracionCuentaComponent,
+    TableroCuentaComponent
+
   ],
   imports: [
     BrowserModule,
