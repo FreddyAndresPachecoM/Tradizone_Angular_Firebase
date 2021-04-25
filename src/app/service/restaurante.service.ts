@@ -17,4 +17,8 @@ export class RestauranteService {
   crearRestaurante(restaurante: RestauranteI){
     return this.coleccionRestaurante.add(restaurante);
   }
+
+  getRestaurantePorUsuario(idUsuario: string){
+    return this.coleccionRestaurante.ref.where("user_id", "==", idUsuario);
+  }
 }

@@ -17,4 +17,9 @@ export class UsuarioService {
   crearUsuario(usuario: UsuarioI){
     return this.coleccionUsuario.add(usuario);
   }
+
+
+  getUsuarioPorId(idUsuario: string){
+    return this.coleccionUsuario.ref.where("uid", "==", idUsuario);
+  }
 }

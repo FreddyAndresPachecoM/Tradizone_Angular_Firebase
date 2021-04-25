@@ -24,6 +24,8 @@ import { FormularioPlatoComponent } from './components/platos/formulario-plato/f
 
 /** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
+import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     LoginComponent,
     NavbarComponent,
     HistoryComponent,
-    FormularioPlatoComponent
+    FormularioPlatoComponent,
+    ConfiguracionCuentaComponent,
+    TableroCuentaComponent
   ],
   imports: [
     BrowserModule,

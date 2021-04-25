@@ -1,0 +1,68 @@
+.contenedor-pricipal{
+    height: 100%;
+    margin-top: 30px;
+}
+
+.contenedor-pricipal > h1{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    color: #4468a7;
+}
+
+.contenedor-pricipal > div > img {
+    height: 130px;
+    margin: auto 2%;
+}
+
+.contenedor-pricipal > .cabecera{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: -30px;
+}
+
+/* ------------------------------- Datos del Restaurante -------------------------------*/
+
+.contenedor-pricipal > .cabecera > .contenedor-datos > p{
+    font-size: 18px;
+    color: black;
+    text-align: justify;
+    width: 100%;
+    font-weight: bold;
+    margin: 2%;
+}
+
+.contenedor-pricipal > .cabecera > .contenedor-datos > p > span{
+    font-weight: normal;
+}
+
+.contenedor-pricipal > .cabecera > .contenedor-datos{
+    margin: auto;
+    width: 100%;
+    background-color: rgb(255, 253, 253);
+}
+
+/* ------------------------------- Botones de Agregar ------------------------------- */
+.contenedor-pricipal > .cabecera > div > a{
+    display: block;
+    text-decoration: none;
+    border-radius:  5px;
+    border: solid 2px #4468a7;
+    margin: 10px;
+    padding: 5px 10px;
+    color: #4468a7;
+    font-weight: bolder;
+}
+
+.contenedor-pricipal .cabecera .btns-agregar{
+    margin: 2%;
+    width: 250px;
+}
+
+.contenedor-pricipal .cabecera > div > a:hover{
+    border: solid 2px darkslategrey;
+    color: darkslategrey;
+}
+
+/*darkslategrey; hove btns*/
