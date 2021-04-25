@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { UsuarioI } from 'src/app/model/usuario_i';
 import { AuthService } from 'src/app/service/auth.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
+import { DataService } from 'src/app/util/data.service';
 
 @Component({
   selector: 'app-registro-usuarios',
@@ -22,8 +23,8 @@ export class RegistroUsuariosComponent implements OnInit {
     contrasena: new FormControl('')
   });
 
-  constructor(private fbstore: AngularFirestore, private router:Router,
-              private authService: AuthService, private usuarioService: UsuarioService) { 
+  constructor(private fbstore: AngularFirestore, private router:Router, private authService: AuthService, 
+              private usuarioService: UsuarioService, private dataService: DataService) { 
   }
 
   ngOnInit(): void {
@@ -44,6 +45,7 @@ export class RegistroUsuariosComponent implements OnInit {
         this.usuario['email'] = correo;
         this.usuario['emailVerified'] = true;
         this.existeUsuario = this.usuarioService.crearUsuario(this.usuario);
+        
         alert('¡Registrado correctamente!');
         this.router.navigate(['/home']);
       }

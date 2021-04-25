@@ -6,6 +6,7 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { RestauranteService } from 'src/app/service/restaurante.service';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/util/data.service';
 
 @Component({
   selector: 'app-registro-restaurautes',
@@ -28,7 +29,7 @@ export class RegistroRestaurautesComponent implements OnInit {
   });
 
   constructor(private authService: AuthService, private storage: AngularFireStorage, 
-              private restauranteService: RestauranteService, private router: Router) { }
+              private restauranteService: RestauranteService, private router: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
   }
@@ -66,7 +67,8 @@ export class RegistroRestaurautesComponent implements OnInit {
       fileRef.getDownloadURL().subscribe(urlImagen => {
         restaurante['restaurant_image'] = urlImagen;
         this.restauranteService.crearRestaurante(restaurante);
-        alert("¡Restaurante registrado correctamente!")
+        
+        alert("¡Restaurante registrado correctamente!");
         this.router.navigate(['/home']);
       }, 
       err => alert("ocurrio un error al intentar obtener la url de la imagen!"))
