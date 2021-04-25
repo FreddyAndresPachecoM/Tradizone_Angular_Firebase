@@ -5,5 +5,7 @@ export interface ComidaI{
     food_description: string;
     food_image: string;
     food_name: string;
-    food_restaurant: string;
+
+    /** Relaciones */
+    restaurantId: string;
 }

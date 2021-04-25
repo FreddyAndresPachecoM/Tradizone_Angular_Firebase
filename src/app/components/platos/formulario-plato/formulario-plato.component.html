@@ -9,13 +9,7 @@
             </select>
         </div>
         <input class="input-txt" type="text" placeholder="Descripcion: " formControlName = "descripcion">
-        <input class="input-txt" type="text" placeholder="Costo: " formControlName = "costo">
-        <label for="">Elija el restaurante</label>
-        <div>
-            <select formControlName="restaurante" name="" id="" aria-label="Desfault select">
-                <option value="{{restaurante.restaurant_name}}" *ngFor="let restaurante of restaurantes">{{restaurante.restaurant_name}}</option>
-            </select>
-        </div>
+        <input class="input-txt" type="number" placeholder="Costo: " formControlName = "costo">
         <label for="image">Selecciona una imagen</label>
         <input id="image" type="file" accept=".png, .jpg, .gif" (change) = "onChange($event)" formControlName = "imagen">
 
