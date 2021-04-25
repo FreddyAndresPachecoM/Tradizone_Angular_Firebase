@@ -1,5 +1,5 @@
 /* Ocultar botón radio */
-input[id^="spoiler"]{
+    input[id^="spoiler"]{
     display: none;
     }
     /* Estilo botón clicable */
@@ -37,3 +37,21 @@ input[id^="spoiler"]{
         margin-left: 50px;
         margin-right: 50px;
     }
+
+    .container-div{
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
+
+    .input-txt{
+        width: auto;
+        padding: 10px;
+        font-size: 18px;
+        margin-left: 30px;
+    }
+
+
+

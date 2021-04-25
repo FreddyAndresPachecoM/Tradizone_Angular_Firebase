@@ -21,11 +21,17 @@ import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HistoryComponent } from './components/history/history.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
+import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
+import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
+
+/** -------- FORMULARIOS -------- */
+import { FormsModule } from '@angular/forms'
 
 /** -------- STORAGE: servicio de Firebase para almacenar archivos -------- */
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
-import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
+
+/** --------- Buscador en tiempo real  ---------*/
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,8 @@ import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cue
     HistoryComponent,
     FormularioPlatoComponent,
     ConfiguracionCuentaComponent,
-    TableroCuentaComponent
+    TableroCuentaComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -47,6 +54,7 @@ import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cue
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FormsModule,
     ReactiveFormsModule,
     AngularFireStorageModule
   ],

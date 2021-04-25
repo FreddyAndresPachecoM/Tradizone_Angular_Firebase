@@ -10,6 +10,7 @@ import { Historia } from 'src/app/model/historia';
 export class HistoryComponent implements OnInit {
 
   historias: Array<Historia>;
+  filterPost= '';
 
   constructor(private fbstore: AngularFirestore) { }
 

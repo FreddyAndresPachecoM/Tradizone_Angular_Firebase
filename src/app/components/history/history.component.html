@@ -8,7 +8,12 @@
         <p>Diciembre es ideal para venir a Cuenca. Todo el color de la religiosidad popular y el neo-barroco estallan el 24, en el Pase de Niño. Sus reminiscencias solares las subraya el ritual de la chicha brindada a los priostes y a los asistentes, además del pan tradicional de la pascua navideña.</p>
     </body>
 </div>
-<div class="container" *ngFor="let historia of historias">
+<div class="form-group container-div">
+    <label for="">Que es lo que buscas? </label>
+    <input type="text" class="form-control input-txt" name="filterPost" placeholder="Escribelo aquí..." [(ngModel)]="filterPost">
+</div>
+
+<div class="container" *ngFor="let historia of historias | filter:filterPost">
     <input type="checkbox" id="spoiler{{historia.history_id}}"/>
     <label for="spoiler{{historia.history_id}}"><h2>{{historia.history_title}}</h2></label>
     <div class="spoiler">
