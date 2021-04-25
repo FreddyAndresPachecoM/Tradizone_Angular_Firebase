@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { CategoriaI } from 'src/app/model/categoria_i';
-import { Comida } from 'src/app/model/comida';
+import { ComidaI } from 'src/app/model/comida_i';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   //categorieslist = Array;
 
   categorias : Array<CategoriaI>; 
-  comidas: Array<Comida>;
+  public comidas= [];
 
   constructor(private fbstore: AngularFirestore) { }
 
@@ -39,23 +39,30 @@ export class HomeComponent implements OnInit {
     }
   }*/
 
-  getFoods(){
-    this.fbstore.collection("food").snapshotChanges().subscribe(data=>{
-      this.comidas = data.map(
-        result => {
-          let comida = new Comida;
-          comida.food_id = result.payload.doc.id;
-          comida.food_category = result.payload.doc.data()["food_category"];
-          comida.food_cost = result.payload.doc.data()["food_cost"];
-          comida.food_description = result.payload.doc.data()["food_description"];
-          comida.food_image = result.payload.doc.data()["food_image"];
-          comida.food_name = result.payload.doc.data()["food_name"];
-          comida.food_restaurant = result.payload.doc.data()["food_restaurant"];
+  async getFoods(){
 
-          return comida;
-        }
-      )
-    })
+    try {
+      await this.fbstore.collection("food").snapshotChanges().subscribe(data=>{
+        this.comidas = data.map(
+          result => {
+            return{
+            
+            food_id : result.payload.doc.id,
+            food_category : result.payload.doc.data()["food_category"],
+            food_cost : result.payload.doc.data()["food_cost"],
+            food_description : result.payload.doc.data()["food_description"],
+            food_image : result.payload.doc.data()["food_image"],
+            food_name : result.payload.doc.data()["food_name"],
+            food_restaurant : result.payload.doc.data()["food_restaurant"]
+            }
+            
+          }
+        );
+      });  
+    } catch (error) {
+      console.log(error)
+    }
+    
   }
 
 

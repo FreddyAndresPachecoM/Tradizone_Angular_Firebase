@@ -1,4 +1,4 @@
-export class Comida{
+export interface ComidaI{
     food_id? : string;
     food_category: string;
     food_cost: string;
@@ -6,4 +6,4 @@ export class Comida{
     food_image: string;
     food_name: string;
     food_restaurant: string;
-}   
+}
