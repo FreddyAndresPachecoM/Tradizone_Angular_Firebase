@@ -1,0 +1,25 @@
+<p>formulario-eventos works!</p>
+<div class="contenedor-principal">
+    <h1>Formulario Platos</h1>
+    <form [formGroup] = "eventoRegistroForm" (ngSubmit) = "registrarEvento()">
+
+        <input class="input-txt" type="text" placeholder="Titulo: " formControlName = "titulo">
+        
+        <input class="input-txt" type="text" placeholder="Descripcion: " formControlName = "descripcion">
+
+        <input class="input-txt" type="text" placeholder="Lugar: " formControlName = "lugar">
+
+        <label for="date" class="">Fecha y hora del evento:</label>        
+        
+        <div class="container-date">
+            <td><input class="" type="date" formControlName = "fecha"></td>
+            <td><input class="" type="time" formControlName = "hora"></td>
+        </div>
+
+        <label for="image">Selecciona una imagen</label>
+        <input id="image" type="file" accept=".png, .jpg, .gif" (change) = "onChange($event)" formControlName = "imagen">
+
+        <input class="input-btn" type="submit">
+
+    </form>
+</div>

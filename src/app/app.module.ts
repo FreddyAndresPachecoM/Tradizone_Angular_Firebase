@@ -13,13 +13,13 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { environment } from 'src/environments/environment';
 
 /** ----------------------------- COMPONENTES ----------------------------- */
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { RegistroRestaurautesComponent } from './components/restaurantes/registro-restaurautes/registro-restaurautes.component';
-import { CatalogoRestaurautesComponent } from './components/restaurantes/catalogo-restaurautes/catalogo-restaurautes.component';
+import { CatalogoRestaurautesComponent } from './pages/catalogo-restaurautes/catalogo-restaurautes.component';
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { HistoryComponent } from './components/history/history.component';
+import { HistoryComponent } from './pages/history/history.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
 import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
@@ -32,6 +32,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 /** --------- Buscador en tiempo real  ---------*/
 import { FilterPipe } from './pipes/filter.pipe';
+import { EventosComponent } from './pages/eventos/eventos.component';
+import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
 
 @NgModule({
   declarations: [
@@ -44,9 +46,12 @@ import { FilterPipe } from './pipes/filter.pipe';
     NavbarComponent,
     HistoryComponent,
     FormularioPlatoComponent,
+    FilterPipe,
+    EventosComponent,
+    FormularioEventosComponent,
     ConfiguracionCuentaComponent,
-    TableroCuentaComponent,
-    FilterPipe
+    TableroCuentaComponent
+
   ],
   imports: [
     BrowserModule,
