@@ -1,6 +1,6 @@
 .contenedor-pricipal{
     height: 100%;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .contenedor-pricipal > h1{
@@ -66,4 +66,72 @@
     cursor: pointer;
 }
 
-/*darkslategrey; hove btns*/
+/* ============================= CUERPO DEL TABLERO ============================= */
+.cuerpo {
+    margin-top: 20px;
+}
+
+.cuerpo > p{
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 60px;
+}
+
+.cuerpo > p > a{
+    color: #4468a7;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.cuerpo > div > h2{
+    color: #4468a7;
+    font-weight: bold;
+    text-align: center;
+}
+
+.cuerpo > div > table{
+    width: 98%;
+    margin: auto 1%;
+    margin-bottom: 40px;
+}
+
+.cuerpo > div > table > thead > tr > th{
+    border-radius: 5px;
+    border: solid 1px #103574;
+    color: #103574;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 2px auto;
+    background-color: rgb(219, 235, 240);
+}
+
+.cuerpo > div > table > tbody > tr > td {
+    border: 1px solid darkslategrey;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cuerpo > div > table > tbody > tr > td > button{
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: white;
+    cursor: pointer;
+    outline:none;
+}
+
+.cuerpo > div > table > tbody > tr > td > .btn-editar{
+    color: rgb(85, 78, 20);
+}
+
+.cuerpo > div > table > tbody > tr > td > .btn-eliminar{
+    color: rgb(112, 19, 19);
+}
+
+.cuerpo > div > table > tbody > tr > td > button:hover{
+    color: rgb(41, 54, 53);
+}

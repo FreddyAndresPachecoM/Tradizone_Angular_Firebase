@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { CategoriaI } from 'src/app/model/categoria_i';
-import { ComidaI } from 'src/app/model/comida_i';
+import { PlatoI } from 'src/app/model/plato_i';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +9,6 @@ import { ComidaI } from 'src/app/model/comida_i';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
-  //categorieslist = Array;
 
   categorias : Array<CategoriaI>; 
   public comidas= [];
@@ -21,23 +19,6 @@ export class HomeComponent implements OnInit {
     this.getCategories();
     this.getFoods();
   }
-
- /* async getCategories(){
-    try{
-      await this.fbstore.collection("categories").snapshotChanges()
-      .subscribe(data => {
-        this.categorieslist = data.map(result => {
-          return {
-            category_id: result.payload.doc.id,
-            category_name: result.payload.doc.data()["category_name"],
-            category_image: result.payload.doc.data()["category_image"]
-          }
-        });
-      });
-    }catch(error){
-      alert("Ocurrio un error, es culpa del Angel")
-    }
-  }*/
 
   async getFoods(){
 

@@ -1,5 +1,5 @@
 export interface EventoI{
-    event_id?: string;
+    uid?: string;
     event_date: string;
     event_date_create: string;
     event_description: string;
@@ -7,5 +7,6 @@ export interface EventoI{
     event_title: string;
     event_url_image: string;
 
-    event_uid: string;
+    /** Relaciones --------- */
+    idUsuario: string;
 }

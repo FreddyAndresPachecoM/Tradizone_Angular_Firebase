@@ -9,11 +9,87 @@
         </div>
         <div class="btns-agregar">
             <a (click) = "agragarPlato()"> <i class="fas fa-plus-circle"></i> Plato</a>
-            <a href=""> <i class="fas fa-plus-circle"></i> Historia</a>
-            <a href=""> <i class="fas fa-plus-circle"></i> Evento</a>
+            <a (click) = "agregarHistoria()"> <i class="fas fa-plus-circle"></i> Historia</a>
+            <a (click) = "agregarEvento()"> <i class="fas fa-plus-circle"></i> Evento</a>
         </div>
     </div>
     <div class="cuerpo">
+
+        <p *ngIf="listaPlatos.length == 0">
+            ¡Aun no tienes platos para presentar! <a (click)="agragarPlato()"> ¡Agregar un Plato!</a>
+        </p>
+
+        <!-- ----------------- Platos  ----------------- -->
+        <div>
+            <h2>Catátolo de Platos para presentar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>tipo</th>
+                        <th>Editar</th>
+                        <th>En Catálogo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let plato of listaPlatos">
+                        <td hidden>plato.id</td>
+                        <td>{{plato.data().food_name}}</td>
+                        <td>{{plato.data().food_category}}</td>
+                        <td><button class="btn-editar"> <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ----------------- Eventos  ----------------- -->
+        <div>
+            <h2>Eventos para publicar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Fecha</th>
+                        <th>Editar</th>
+                        <th>En Catálogo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evento of listaEventos">
+                        <td hidden>{{evento.id}}</td>
+                        <td>{{evento.data().event_title}}</td>
+                        <td>{{evento.data().event_date}}</td>
+                        <td><button class="btn-editar"> <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ----------------- Historias  ----------------- -->
+        <div>
+            <h2>Historia para publicar</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>tipo</th>
+                        <th>Editar</th>
+                        <th>En Catálogo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td hidden>id aqui</td>
+                        <td>Nombre Aqui :v</td>
+                        <td>Tipo Aqui :v</td>
+                        <td><button class="btn-editar"> <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
     </div>
 </div>

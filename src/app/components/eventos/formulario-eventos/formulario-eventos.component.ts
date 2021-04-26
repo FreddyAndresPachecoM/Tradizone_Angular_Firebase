@@ -2,7 +2,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
 import { EventoService } from 'src/app/service/evento.service';
@@ -18,6 +18,7 @@ export class FormularioEventosComponent implements OnInit {
 
   private imagen: File = null;
   private imagenPath: string;
+  private idUsuario: string;
 
   fecha_actual: Date;
 
@@ -31,9 +32,10 @@ export class FormularioEventosComponent implements OnInit {
   });
 
   constructor(private eventoService: EventoService ,private fbstore: AngularFirestore, private storage: AngularFireStorage,
-    private authService: AuthService, private router: Router) { }
+    private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe(params => this.idUsuario = params.get('idUsuario'));
   }
 
   registrarEvento(){ 
@@ -43,6 +45,7 @@ export class FormularioEventosComponent implements OnInit {
       const usuarioLoguedo = this.authService.getUsuarioLogeado();
       usuarioLoguedo.then(
         data => {
+          this.evento['idUsuario'] = this.idUsuario;
           this.evento['event_title'] = titulo;
           this.evento['event_description'] = descripcion;
           this.evento['event_location'] = lugar;
@@ -63,7 +66,7 @@ export class FormularioEventosComponent implements OnInit {
         evento['event_url_image'] = urlImagen;
         this.eventoService.crearEvento(evento);
         alert("¡Evento registrado correctamente!")
-        this.router.navigate(['/home']);
+        this.eventoRegistroForm.reset();
       }, 
       err => alert("ocurrio un error al intentar obtener la url de la imagen!"))
     })).subscribe();
