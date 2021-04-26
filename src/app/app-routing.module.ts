@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'restaurante-registro', component:  RegistroRestaurautesComponent},
   { path: 'historia', component: HistoryComponent},
-  { path: 'plato-registro', component: FormularioPlatoComponent},
+  { path: 'plato-registro/:idRestaurante', component: FormularioPlatoComponent},
   { path: 'evento-registro', component: FormularioEventosComponent},
   { path: 'tablero-cuenta', component: TableroCuentaComponent},
   { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},

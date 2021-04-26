@@ -23,6 +23,8 @@ import { HistoryComponent } from './pages/history/history.component';
 import { FormularioPlatoComponent } from './components/platos/formulario-plato/formulario-plato.component';
 import { ConfiguracionCuentaComponent } from './components/usuarios/cuenta/configuracion-cuenta/configuracion-cuenta.component';
 import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cuenta/tablero-cuenta.component';
+import { EventosComponent } from './pages/eventos/eventos.component';
+import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
 
 /** -------- FORMULARIOS -------- */
 import { FormsModule } from '@angular/forms'
@@ -32,9 +34,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 /** --------- Buscador en tiempo real  ---------*/
 import { FilterPipe } from './pipes/filter.pipe';
-import { EventosComponent } from './pages/eventos/eventos.component';
-import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
 import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   declarations: [
