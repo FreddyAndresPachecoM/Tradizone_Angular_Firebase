@@ -9,9 +9,17 @@ export class FilterPipe implements PipeTransform {
     if (arg === '' || arg.length < 3) return value;
     const resultPosts = [];
     for (const post of value) {
-      if (post.history_title.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
-        resultPosts.push(post);
-      };
+
+      try {
+        if (post.history_title.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultPosts.push(post);
+        };    
+      } catch (error) {
+        if(post.food_category.toLowerCase().indexOf(arg.toLowerCase())> -1){
+          resultPosts.push(post);
+        }; 
+      }
+
     };
     return resultPosts;
   }

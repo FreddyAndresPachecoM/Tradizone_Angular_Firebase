@@ -6,14 +6,14 @@
     </head>
     <body class="centrarBloque">
         <div class="container">
-            <div class="card" *ngFor="let categoria of categorias">
-            <img src="{{categoria.category_image}}" alt="">   
+            <div class="card" *ngFor="let categoria of categorias">    
+            <img src="{{categoria.category_image}}" alt="" (click) = "seleccionOpcion(categoria.category_name)">   
             <h3 class="title"><b>{{categoria.category_name}}</b></h3>
             <div class="bar">
                 <div class="emptybar"></div>
                 <div class="filledbar"></div>
             </div>
-            <div class="circle">
+            <div class="circle" (click) = "seleccionOpcion(categoria.category_name)">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
                     <circle class="stroke" cx="60" cy="60" r="50" />
                 </svg>
@@ -24,7 +24,7 @@
     
     <div class="bodyColor">
         <br>
-        <div class="contenedorBody" *ngFor="let food of comidas">
+        <div class="contenedorBody" *ngFor="let food of comidas | filter:filterPost">
             <div class="bodyCardContainer centrarBloque">
                 <div class="headerBody">
                     <a href="#">

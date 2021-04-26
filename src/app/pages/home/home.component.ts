@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   categorias : Array<CategoriaI>; 
   public comidas= [];
 
+  filterPost = '';
+
   constructor(private fbstore: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -64,4 +66,9 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  seleccionOpcion(tipo: string){
+    this.filterPost = tipo;
+  }
+
 }
