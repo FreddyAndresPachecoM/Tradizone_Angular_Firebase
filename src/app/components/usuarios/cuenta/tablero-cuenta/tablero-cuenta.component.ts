@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { ComidaService } from 'src/app/service/comida.service';
 import { EventoService } from 'src/app/service/evento.service';
+import { HistoriaService } from 'src/app/service/historia.service';
 import { RestauranteService } from 'src/app/service/restaurante.service';
 import { UsuarioService } from 'src/app/service/usuario.service';
 
@@ -16,9 +17,11 @@ export class TableroCuentaComponent implements OnInit {
   restaurante: any;
   listaPlatos = new  Array<any>();
   listaEventos = new Array<any>();
+  listaHistorias= new Array<any>();
 
   constructor(private restaurantesService: RestauranteService, private authService: AuthService, private usuarioService: UsuarioService,
-              private router: Router, private platoService: ComidaService, private eventoService: EventoService) { }
+              private router: Router, private platoService: ComidaService, private eventoService: EventoService,
+              private historiaService:HistoriaService) { }
 
 
   async ngOnInit(){
@@ -35,6 +38,11 @@ export class TableroCuentaComponent implements OnInit {
             this.eventoService.getAllEventoPorUsuario(doc.data().user_id).get().then(
               (querySnapshot) => querySnapshot.forEach(
                 (doc) => this.listaEventos.push(doc)
+              )
+            );
+            this.historiaService.getAllHistoriasPorUsuario(doc.data().user_id).get().then(
+              (querySnapshot) => querySnapshot.forEach(
+                (doc) => this.listaHistorias.push(doc)
               )
             );
           } 
@@ -54,7 +62,9 @@ export class TableroCuentaComponent implements OnInit {
   }
 
   agregarHistoria(){
-
+    this.authService.getUsuarioLogeado().then(
+      data => this.router.navigate([`/historia-registro/${data.uid}`])
+    );
   }
 
 }

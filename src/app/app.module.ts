@@ -35,6 +35,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 /** --------- Buscador en tiempo real  ---------*/
 import { FilterPipe } from './pipes/filter.pipe';
 import { DatePipe } from '@angular/common';
+import { FormularioHistoriasComponent } from './components/historias/formulario-historias/formulario-historias.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { DatePipe } from '@angular/common';
     EventosComponent,
     FormularioEventosComponent,
     ConfiguracionCuentaComponent,
-    TableroCuentaComponent
+    TableroCuentaComponent,
+    FormularioHistoriasComponent
 
   ],
   imports: [
