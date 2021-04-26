@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -19,7 +19,7 @@ export class FormularioEventosComponent implements OnInit {
   private imagen: File = null;
   private imagenPath: string;
 
-  fecha: Date;
+  fecha_actual: Date;
 
   eventoRegistroForm = new FormGroup({
     titulo: new FormControl('',Validators.required),
@@ -36,17 +36,19 @@ export class FormularioEventosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registrarEvento(){
+  registrarEvento(){ 
+    this.fecha_actual = new Date();
     const{titulo, descripcion, lugar, fecha, hora} = this.eventoRegistroForm.value;
     if(this.imagen != null && this.eventoRegistroForm.valid){
       const usuarioLoguedo = this.authService.getUsuarioLogeado();
       usuarioLoguedo.then(
         data => {
           this.evento['event_title'] = titulo;
-          this.evento['event_descrition'] = descripcion;
+          this.evento['event_description'] = descripcion;
           this.evento['event_location'] = lugar;
-          this.evento['event_date'] = fecha + hora;
-
+          this.evento['event_date'] = fecha +" "+ hora;
+          this.evento['event_date_create'] = this.authService.transformDate(this.fecha_actual);
+          this.crearEvento(this.evento, this.imagen);
         },err => alert('problema al obtener el usuario autenticado')
       );
     }else alert('Debe llenar todos los campos!');
@@ -58,9 +60,9 @@ export class FormularioEventosComponent implements OnInit {
     const task = this.storage.upload(this.imagenPath, imagen);
     task.snapshotChanges().pipe(finalize(() => {
       fileRef.getDownloadURL().subscribe(urlImagen => {
-        evento['food_image'] = urlImagen;
+        evento['event_url_image'] = urlImagen;
         this.eventoService.crearEvento(evento);
-        alert("¡Comida registrado correctamente!")
+        alert("¡Evento registrado correctamente!")
         this.router.navigate(['/home']);
       }, 
       err => alert("ocurrio un error al intentar obtener la url de la imagen!"))

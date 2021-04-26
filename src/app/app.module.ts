@@ -34,6 +34,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FilterPipe } from './pipes/filter.pipe';
 import { EventosComponent } from './pages/eventos/eventos.component';
 import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,7 @@ import { FormularioEventosComponent } from './components/eventos/formulario-even
     ReactiveFormsModule,
     AngularFireStorageModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

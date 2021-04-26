@@ -9,6 +9,7 @@ import { TableroCuentaComponent } from './components/usuarios/cuenta/tablero-cue
 import { LoginComponent } from './components/usuarios/login/login.component';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
+import { EventosComponent } from './pages/eventos/eventos.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'evento-registro', component: FormularioEventosComponent},
   { path: 'tablero-cuenta', component: TableroCuentaComponent},
   { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},
+  { path: 'eventos', component: EventosComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
