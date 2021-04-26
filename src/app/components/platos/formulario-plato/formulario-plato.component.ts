@@ -56,6 +56,7 @@ export class FormularioPlatoComponent implements OnInit {
           this.comida['food_description'] = descripcion;
           this.comida['food_cost'] = costo;
           this.comida['restaurantId'] = this.idRestaurante;
+          this.comida['food_state'] = true;
           this.crearPlato(this.comida, this.imagen)
         },
         err => alert('¡A ocurrido un problema al obtener el usuario autenticado!')
@@ -72,7 +73,7 @@ export class FormularioPlatoComponent implements OnInit {
         comida['food_image'] = urlImagen;
         this.comidaService.crearComida(comida);
         alert("¡Comida registrado correctamente!")
-        this.router.navigate(['/home']);
+        this.platoRegistroForm.reset();
       }, 
       err => alert("ocurrio un error al intentar obtener la url de la imagen!"))
     })).subscribe();

@@ -16,4 +16,8 @@ export class EventoService {
   crearEvento(evento: EventoI){
     return this.coleccionEvento.add(evento);
   }
+
+  getAllEventoPorUsuario(idUsuario: string){
+    return this.coleccionEvento.ref.where("idUsuario", "==", idUsuario);
+  }
 }
