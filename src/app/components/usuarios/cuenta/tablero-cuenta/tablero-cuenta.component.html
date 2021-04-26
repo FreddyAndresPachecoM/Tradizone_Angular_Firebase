@@ -20,7 +20,7 @@
         </p>
 
         <!-- ----------------- Platos  ----------------- -->
-        <div>
+        <div *ngIf="listaPlatos.length > 0" >
             <h2>Catátolo de Platos para presentar</h2>
             <table>
                 <thead>
@@ -44,7 +44,7 @@
         </div>
 
         <!-- ----------------- Eventos  ----------------- -->
-        <div>
+        <div *ngIf="listaEventos.length > 0">
             <h2>Eventos para publicar</h2>
             <table>
                 <thead>
@@ -68,22 +68,20 @@
         </div>
 
         <!-- ----------------- Historias  ----------------- -->
-        <div>
-            <h2>Historia para publicar</h2>
+        <div *ngIf="listaHistorias.length > 0">
+            <h2>Historias para publicar</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>tipo</th>
+                        <th>Titulo</th>
                         <th>Editar</th>
                         <th>En Catálogo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td hidden>id aqui</td>
-                        <td>Nombre Aqui :v</td>
-                        <td>Tipo Aqui :v</td>
+                    <tr *ngFor="let historia of listaHistorias">
+                        <td hidden>{{historia.id}}</td>
+                        <td>{{historia.data().history_title}}</td>
                         <td><button class="btn-editar"> <i class="far fa-edit"></i>Editar</button></td>
                         <td><button class="btn-eliminar"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
                     </tr>

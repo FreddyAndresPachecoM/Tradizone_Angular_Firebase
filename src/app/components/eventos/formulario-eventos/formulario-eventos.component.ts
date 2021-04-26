@@ -31,8 +31,8 @@ export class FormularioEventosComponent implements OnInit {
     imagen: new FormControl('', Validators.required)
   });
 
-  constructor(private eventoService: EventoService ,private fbstore: AngularFirestore, private storage: AngularFireStorage,
-    private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(private eventoService: EventoService , private storage: AngularFireStorage,
+    private authService: AuthService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => this.idUsuario = params.get('idUsuario'));

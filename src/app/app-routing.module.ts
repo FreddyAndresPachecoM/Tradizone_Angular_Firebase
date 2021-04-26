@@ -10,6 +10,7 @@ import { LoginComponent } from './components/usuarios/login/login.component';
 import { RegistroUsuariosComponent } from './components/usuarios/registro-usuarios/registro-usuarios.component';
 import { FormularioEventosComponent } from './components/eventos/formulario-eventos/formulario-eventos.component';
 import { EventosComponent } from './pages/eventos/eventos.component';
+import { FormularioHistoriasComponent } from './components/historias/formulario-historias/formulario-historias.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'historia', component: HistoryComponent},
   { path: 'plato-registro/:idRestaurante', component: FormularioPlatoComponent},
   { path: 'evento-registro/:idUsuario', component: FormularioEventosComponent},
+  { path: 'historia-registro/:idUsuario', component: FormularioHistoriasComponent},
   { path: 'tablero-cuenta', component: TableroCuentaComponent},
   { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},
   { path: 'eventos', component: EventosComponent},
