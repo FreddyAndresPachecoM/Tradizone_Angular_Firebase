@@ -25,7 +25,7 @@
     <div class="bodyColor">
         <br>
         <div class="contenedorBody" *ngFor="let food of comidas | filter:filterPost">
-            <div class="bodyCardContainer centrarBloque">
+            <div class="bodyCardContainer">
                 <div class="headerBody">
                     <a href="#">
                         <img class="imgBody" src="{{food.food_image}}" width="250">
@@ -41,5 +41,47 @@
         <br>
     </div>
     
+    <div class="bodyColor">
+        <br>
+        <div class="contenedorBody" *ngFor="let restaurant of restaurantes">
+            <div class="bodyCardContainer">
+                <div class="headerBody">
+                    <a href="#">
+                        <img class="imgBody" src="{{restaurant.restaurant_image}}" width="250">
+                    </a>                
+                </div>
+                <div class="descripcionBody">
+                    <h2>{{restaurant.restaurant_name}}</h2>
+                    <p>{{restaurant.restaurant_description}}</p>
+                    <h3 class="restauranteColor">{{restaurant.restaurant_zone}}</h3>
+                    <h3 class="restauranteColor">{{restaurant.restaurant_location}}</h3>
+                    <h3>{{restaurant.restaurant_phone}}</h3>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="bodyColor">
+        <br>
+        <div class="recetaContenedorBody" *ngFor="let receta of recetas">
+            <div class="recetaBodyCardContainer">
+                <div class="headerBody">
+                    <a href="#">
+                        <img class="imgBody" src="{{receta.receta_url_imagen}}" width="250">
+                    </a>                
+                    <h3 class="restauranteColor">{{receta.receta_autor}}</h3>
+                    <h3 class="restauranteColor">{{receta.receta_fecha}}</h3>
+                </div>
+                <div class="descripcionBody">
+                    <h2>{{receta.receta_titulo}}</h2>
+                    <label for="">Ingredientes:</label>
+                    <p>{{receta.receta_ingredientes}}</p>
+                    <label for="">Preparación:</label>
+                    <p>{{receta.receta_preparacion}}</p>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
 
 </div>

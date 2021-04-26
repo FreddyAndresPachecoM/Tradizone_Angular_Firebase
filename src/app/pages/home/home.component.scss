@@ -20,6 +20,30 @@ body {
     margin-top: 50px;
   }
 
+  .recetaContenedorBody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    font-family: 'Nunito', sans-serif;
+    margin-top: 50px;
+  }
+
+  .recetaBodyCardContainer{
+    display: flex;
+    height: 750px;
+    width: 1000px;
+    background-color: #689be9;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+    margin-left: -50px; 
+    transition: 0.4s ease-out;
+    position: relative;
+    left: 0px;  
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .headerBody, .descripcionBody{
     padding: 20px;
 }
@@ -72,7 +96,7 @@ body {
 
   .bodyCardContainer{
     display: flex;
-    height: 350px;
+    height: 275px;
     width: 1000px;
     background-color: #689be9;
     border-radius: 10px;
@@ -81,6 +105,8 @@ body {
     transition: 0.4s ease-out;
     position: relative;
     left: 0px;  
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width:640px){
