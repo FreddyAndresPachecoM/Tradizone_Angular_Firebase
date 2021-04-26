@@ -1,0 +1,85 @@
+.contenedor-principal{
+    width: 50%;
+    margin: 40px auto;
+}
+
+.contenedor-principal > h1{
+    width: 100%;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.contenedor-principal > form{
+    width: 100%;
+}
+
+.contenedor-principal > form > input, select{
+    display: block;
+    border-radius: 5px;
+    outline: none;
+    margin: 20px auto;
+    border: 2px solid #5A8FED;
+    background-color: white;
+}
+
+.contenedor-principal > form > select{
+    color: black;
+}
+
+.contenedor-principal > form > label{
+    font-weight: bold;
+}
+
+.contenedor-principal > form > img{
+    display: block;
+    width: 50px;
+    margin: 10px auto;
+}
+
+.contenedor-principal > form > .input-txt{
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.contenedor-principal > form > .input-btn{
+    width: 60%;
+    padding: 10px;
+    font-weight: lighter;
+    background-color: #5A8FED;
+    font-size: 20px;
+    color: white;
+}
+
+.contenedor-principal > form > .input-btn:hover{
+    cursor: pointer;
+    background-color: #5685d6;
+}
+
+.contenedor-principal button{
+    display: block;
+    border-radius: 5px;
+    border: 2px solid rgb(168, 84, 84);
+    width: 60%;
+    font-size: 20px;
+    color: rgb(168, 84, 84);
+    padding: 10px;
+    margin: auto;
+    outline: none;
+}
+
+.contenedor-principal button:hover{
+    cursor: pointer;
+    background-color: rgb(235, 226, 226);
+}
+
+.contenedor-principal > a {
+    display: block;
+    color: #394f75;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}

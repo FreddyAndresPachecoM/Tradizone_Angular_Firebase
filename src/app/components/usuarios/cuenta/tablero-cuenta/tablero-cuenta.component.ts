@@ -50,10 +50,9 @@ export class TableroCuentaComponent implements OnInit {
   }
 
 
-  agragarPlato(){
+ /* agragarPlato(){
     this.router.navigate([`/plato-registro/${this.restaurante.id}`]);
   }
-
 
   agregarEvento(){
     this.authService.getUsuarioLogeado().then(
@@ -65,6 +64,31 @@ export class TableroCuentaComponent implements OnInit {
     this.authService.getUsuarioLogeado().then(
       data => this.router.navigate([`/historia-registro/${data.uid}`])
     );
+  }*/
+
+  agregarDatos(tipo: number): void {
+    if(tipo == 1)
+      this.router.navigate([`/plato-registro/${this.restaurante.id}`]);
+    else if(tipo == 2)
+      this.authService.getUsuarioLogeado().then(
+        data => this.router.navigate([`/evento-registro/${data.uid}`])
+      );
+    else if(tipo == 3)
+      this.authService.getUsuarioLogeado().then(
+        data => this.router.navigate([`/historia-registro/${data.uid}`])
+      );
+  }
+
+  editarDatos(idData: string, tipo: number): void {
+    if(tipo == 1)
+      this.router.navigate([`/plato-edit/${idData}`]);
+    else if(tipo == 2)
+      this.router.navigate([`/evento-edit/${idData}`]);
+    else if(tipo == 3)
+      this.router.navigate([`/historia-edit/${idData}`]);
+  }
+
+  eliminarDatos(idData: string, tipo: number): void {
   }
 
 }

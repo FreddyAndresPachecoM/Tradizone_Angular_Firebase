@@ -26,7 +26,7 @@ export class FormularioPlatoComponent implements OnInit {
   private idRestaurante: string;
 
   constructor(private fbstore: AngularFirestore, private comidaService: ComidaService, private storage: AngularFireStorage, 
-              private authService: AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
+              private authService: AuthService, private activatedRoute: ActivatedRoute) { }
 
   platoRegistroForm = new FormGroup({
     nombre: new FormControl('', Validators.required),

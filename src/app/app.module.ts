@@ -36,6 +36,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DatePipe } from '@angular/common';
 import { FormularioHistoriasComponent } from './components/historias/formulario-historias/formulario-historias.component';
+import { FormularioEditPlatoComponent } from './components/platos/formulario-edit-plato/formulario-edit-plato.component';
+import { FormularioEditHistoriaComponent } from './components/historias/formulario-edit-historia/formulario-edit-historia.component';
+import { FormularioEditEventoComponent } from './components/eventos/formulario-edit-evento/formulario-edit-evento.component';
 
 
 @NgModule({
@@ -54,7 +57,10 @@ import { FormularioHistoriasComponent } from './components/historias/formulario-
     FormularioEventosComponent,
     ConfiguracionCuentaComponent,
     TableroCuentaComponent,
-    FormularioHistoriasComponent
+    FormularioHistoriasComponent,
+    FormularioEditPlatoComponent,
+    FormularioEditHistoriaComponent,
+    FormularioEditEventoComponent
 
   ],
   imports: [
