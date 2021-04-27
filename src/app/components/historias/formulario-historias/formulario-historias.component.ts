@@ -40,6 +40,7 @@ export class FormularioHistoriasComponent implements OnInit {
           this.historia['idUsuario'] = this.idUsuario;
           this.historia['history_title'] = titulo;
           this.historia['history_description'] = descripcion;
+          this.historia['history_state'] = true;
           this.crearHistoria(this.historia, this.imagen);
         },err => alert('problema al obtener el usuario autenticado')
       );
