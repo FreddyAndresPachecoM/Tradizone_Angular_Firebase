@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { PlatoI} from '../model/plato_i';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { PlatoI} from '../model/plato_i';
 })
 export class ComidaService {
 
+  private comidaDoc : AngularFirestoreDocument<PlatoI>;  
   public coleccionComida : AngularFirestoreCollection<PlatoI>;
 
   constructor(public angularFirestore: AngularFirestore) { 
@@ -23,5 +24,12 @@ export class ComidaService {
 
   getPlatoPorId(idPlato : string){
     return this.coleccionComida.doc(idPlato).ref.get();
+  }
+
+
+
+  deleteComida(comida){
+    this.comidaDoc = this.angularFirestore.doc<PlatoI>('food/'+comida.id);
+    this.comidaDoc.delete();
   }
 }

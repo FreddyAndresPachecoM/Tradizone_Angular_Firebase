@@ -1,1 +1,96 @@
-<p>configuracion-cuenta works!</p>
+<div class="contenedor-pricipal">
+    <div class="cabecera">
+        <div class="contenedor-datos">
+            <h1>Datos del usuario:</h1>
+            <img src="../../../assets/img/perfil_por_defecto.png" width="200">
+        </div>
+        <div class="contenedor-datos">
+            <p> Nombre: <span>{{usuario.data().displayName}}</span> </p>
+            <p> Correo: <span>{{usuario.data().email}}</span> </p>
+            <button class="btn-editar"  (click)="editarUsuario([usuario.data().uid])" > <i class="far fa-edit"></i>Editar</button>
+        </div>
+        <div class="contenedor-datos">
+            <h1>Datos del restaurante:</h1>
+            <img src="{{restaurante.data().restaurant_image}}" width="200">
+        </div>
+        <div class="contenedor-datos">
+            <p> Nombre: <span>{{restaurante.data().restaurant_name.toUpperCase()}}</span> </p>
+            <p> Descripción: <span>{{restaurante.data().restaurant_description}}</span> </p> 
+            <p> Dirección: <span>{{restaurante.data().restaurant_location}}</span></p>
+            <button class="btn-editar"  (click)="editarRestaurante([restaurante.data().user_id])" > <i class="far fa-edit"></i>Editar</button>
+        </div>
+    </div>
+    
+    <div class="cuerpo">
+
+        <p *ngIf="listaPlatos.length == 0">
+            ¡Aun no tienes platos para presentar! <a (click)="agregarDatos(1)"> ¡Agregar un Plato!</a>
+        </p>
+
+        <!-- ----------------- Platos  ----------------- -->
+        <div *ngIf="listaPlatos.length > 0" >
+            <h2>Platos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Estado en catalogo</th>
+                        <th>Editar</th>
+                        <th>Eliminar permanentemente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let plato of listaPlatos">
+                        <td>{{plato.data().food_name}}</td>
+                        <td>{{plato.data().food_state}}</td>
+                        <td><button class="btn-editar"  (click)="editarDatos(plato.id, 1)" > <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar" (click)="eliminarDatos(plato, 1)"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ----------------- Eventos  ----------------- -->
+        <div *ngIf="listaEventos.length > 0">
+            <h2>Eventos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Título</th>
+                        <th>Editar</th>
+                        <th>Eliminar permanentemente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let evento of listaEventos">
+                        <td>{{evento.data().event_title}}</td>
+                        <td><button class="btn-editar"  (click)="editarDatos(evento.id, 2)" > <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar" (click)="eliminarDatos(evento.id, 2)"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ----------------- Historias  ----------------- -->
+        <div *ngIf="listaHistorias.length > 0">
+            <h2>Historias</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Editar</th>
+                        <th>Eliminar Permanentemente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let historia of listaHistorias">
+                        <td>{{historia.data().history_title}}</td>
+                        <td><button class="btn-editar" (click)="editarDatos(historia.id, 3)"> <i class="far fa-edit"></i>Editar</button></td>
+                        <td><button class="btn-eliminar" (click)="eliminarDatos(historia.id, 3)"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

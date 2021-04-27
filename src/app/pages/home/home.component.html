@@ -46,6 +46,7 @@
         <div class="contenedorBody" *ngFor="let restaurant of restaurantes">
             <div class="bodyCardContainer">
                 <div class="headerBody">
+                    <h3>{{restaurant.restaurant_phone}}</h3>
                     <a href="#">
                         <img class="imgBody" src="{{restaurant.restaurant_image}}" width="250">
                     </a>                
@@ -55,7 +56,7 @@
                     <p>{{restaurant.restaurant_description}}</p>
                     <h3 class="restauranteColor">{{restaurant.restaurant_zone}}</h3>
                     <h3 class="restauranteColor">{{restaurant.restaurant_location}}</h3>
-                    <h3>{{restaurant.restaurant_phone}}</h3>
+                    
                 </div>
             </div>
         </div>
