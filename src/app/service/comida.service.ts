@@ -13,8 +13,8 @@ export class ComidaService {
     this.coleccionComida = angularFirestore.collection<PlatoI>('food');
   }
 
-  crearComida(comida: PlatoI){
-    return this.coleccionComida.add(comida);
+  crearComida(plato: PlatoI){
+    return this.coleccionComida.add(plato);
   }
 
   getAllPlatosPorRestaurante(idRestaurante: string){
@@ -23,5 +23,9 @@ export class ComidaService {
 
   getPlatoPorId(idPlato : string){
     return this.coleccionComida.doc(idPlato).ref.get();
+  }
+
+  editarPlatoPorId(idPlato: string, plato: PlatoI){
+    return this.coleccionComida.doc(idPlato).set(plato);
   }
 }
