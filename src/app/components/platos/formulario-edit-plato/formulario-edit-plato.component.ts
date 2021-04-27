@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriaI } from 'src/app/model/categoria_i';
+import { ComidaService } from 'src/app/service/comida.service';
 
 @Component({
   selector: 'app-formulario-edit-plato',
@@ -12,6 +13,11 @@ import { CategoriaI } from 'src/app/model/categoria_i';
 export class FormularioEditPlatoComponent implements OnInit {
 
   private idPlato: string;
+  private plato: any;
+  private platoUpdate: any = {};
+
+  private imagen : File = null;
+  private imagenPath: string;
 
   categorias: Array<CategoriaI>;
 
@@ -19,23 +25,21 @@ export class FormularioEditPlatoComponent implements OnInit {
     nombre: new FormControl('', Validators.required),
     categoria: new FormControl('', Validators.required),
     descripcion: new FormControl('', Validators.required),
-    costo: new FormControl('', Validators.required),
-    imagen: new FormControl('', Validators.required)
+    costo: new FormControl('', Validators.required)
   });
 
-  constructor(private fbstore: AngularFirestore, private activatedRoute: ActivatedRoute) { }
+  constructor(private fbstore: AngularFirestore, private activatedRoute: ActivatedRoute,
+              private platoService: ComidaService) { }
 
-  ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params => this.idPlato = params.get('idPlato'));
-    this.getCategories();
+  async ngOnInit(){
+    await this.activatedRoute.paramMap.subscribe(params => this.idPlato = params.get('idPlato'));
+    await this.getCategories();
+    await this.platoService.getPlatoPorId(this.idPlato).then(
+      (doc) => this.plato = doc
+    );
   }
 
   editarPlato() {
-
-  }
-
-
-  onChange($event){
 
   }
 
@@ -53,6 +57,11 @@ export class FormularioEditPlatoComponent implements OnInit {
         );
       }
     );
+  }
+
+
+  onChange(e){
+    this.imagen = e.target.files[0];
   }
 
 }

@@ -49,23 +49,6 @@ export class TableroCuentaComponent implements OnInit {
       )));
   }
 
-
- /* agragarPlato(){
-    this.router.navigate([`/plato-registro/${this.restaurante.id}`]);
-  }
-
-  agregarEvento(){
-    this.authService.getUsuarioLogeado().then(
-      data => this.router.navigate([`/evento-registro/${data.uid}`])
-    );
-  }
-
-  agregarHistoria(){
-    this.authService.getUsuarioLogeado().then(
-      data => this.router.navigate([`/historia-registro/${data.uid}`])
-    );
-  }*/
-
   agregarDatos(tipo: number): void {
     if(tipo == 1)
       this.router.navigate([`/plato-registro/${this.restaurante.id}`]);

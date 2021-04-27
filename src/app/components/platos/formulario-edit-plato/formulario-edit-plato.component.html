@@ -6,8 +6,8 @@
         <label>Nombre: </label>
         <input class="input-txt" type="text" placeholder="Nombre: " formControlName = "nombre">
 
-        <label>Elija la categoria: </label>
-        <select class="input-txt" formControlName = "categoria" name="Categorias">
+        <label>Categoría: </label>
+        <select class="input-txt" formControlName = "categoria" name="Categoria">
             <option value="{{categoria.category_name}}" *ngFor="let categoria of categorias">{{categoria.category_name}}</option>
             <option value="" selected hidden>fdsdafsdsda</option>
         </select>
@@ -25,5 +25,5 @@
 
         <input class="input-btn" type="submit">
     </form>
-    <a href="tablero-cuenta">¡Regresar!</a> 
+    <a href="tablero-cuenta">¡Regresar!</a>  
 </div>

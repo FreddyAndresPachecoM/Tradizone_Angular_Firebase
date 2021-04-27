@@ -20,4 +20,8 @@ export class ComidaService {
   getAllPlatosPorRestaurante(idRestaurante: string){
     return this.coleccionComida.ref.where("restaurantId", "==", idRestaurante);
   }
+
+  getPlatoPorId(idPlato : string){
+    return this.coleccionComida.doc(idPlato).ref.get();
+  }
 }
