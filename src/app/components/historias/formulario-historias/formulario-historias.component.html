@@ -10,6 +10,7 @@
         <textarea class="input-txt" placeholder="Descripcion: " formControlName = "descripcion" cols="30" rows="10"></textarea>
 
         <label for="image">Selecciona una imagen:</label>
+        <img alt="img-evento" [src]="imagenMin">
         <input id="image" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)">
 
         <input class="input-btn" type="submit">

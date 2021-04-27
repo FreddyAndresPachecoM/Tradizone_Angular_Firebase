@@ -17,6 +17,7 @@
         </div>
 
         <label for="image">Selecciona una imagen</label>
+        <img alt="img-plato" [src]="imagenMin">
         <input id="image" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)" formControlName = "imagen">
 
         <input class="input-btn" type="submit">

@@ -1,18 +1,18 @@
 <p><a href="tablero-cuenta" style="color: #394f75; margin: 20px; font-size: 18px; font-weight: bold;">¡Regresar!</a></p>
 <div class="contenedor-principal">
 
-    <h1>Cuentanos una Historia</h1>
+    <h1>Editar una Historia</h1>
 
     <form [formGroup] = "formularioHistorias" (ngSubmit) = "editarHistoria()">
 
         <label>Título:</label>
-        <input class="input-txt" type="text" [ngModel] = "" formControlName = "titulo">
+        <input class="input-txt" type="text" [ngModel] = "historia.data().history_title" formControlName = "titulo">
         
         <label>Descripción</label>
-        <textarea class="input-txt" placeholder="Descripcion: " formControlName = "descripcion" cols="30" rows="10"></textarea>
+        <textarea class="input-txt" [ngModel]="historia.data().history_description" formControlName = "descripcion" cols="30" rows="10"></textarea>
 
         <label>Selecciona una imagen:</label>
-        <img *ngIf="imagen == null" src="{{historia.data().history_url_image}}" alt="img-evento">
+        <img *ngIf="imagen == null" src="{{historia.data().history_url_image}}" alt="img-historia">
         <img *ngIf="imagen != null" alt="img-evento" [src]="imagenMin">
         <input id="image" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)">
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +12,9 @@ import { HistoriaService } from 'src/app/service/historia.service';
   styleUrls: ['./formulario-historias.component.scss']
 })
 export class FormularioHistoriasComponent implements OnInit {
+
+  @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
+  imagenMin: File;
 
   private historia: any = {};
 
@@ -64,6 +67,12 @@ export class FormularioHistoriasComponent implements OnInit {
 
   onChange(e){
     this.imagen = e.target.files[0];
+    this.imagen = e.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, ElementRef, Injectable, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +13,9 @@ import { EventoService } from 'src/app/service/evento.service';
   styleUrls: ['./formulario-eventos.component.scss']
 })
 export class FormularioEventosComponent implements OnInit {
+
+  @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
+  imagenMin: File;
 
   private evento: any = {};
 
@@ -75,6 +78,12 @@ export class FormularioEventosComponent implements OnInit {
 
   onChange(e){
     this.imagen = e.target.files[0];
+    this.imagen = e.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
   }
 
 }

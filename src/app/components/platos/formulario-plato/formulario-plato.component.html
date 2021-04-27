@@ -12,6 +12,7 @@
         <input class="input-txt" type="text" placeholder="Descripcion: " formControlName = "descripcion">
         <input class="input-txt" type="number" placeholder="Costo: " formControlName = "costo">
         <label for="image">Selecciona una imagen</label>
+        <img alt="img-plato" [src]="imagenMin">
         <input id="image" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)" formControlName = "imagen">
 
 

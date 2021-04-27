@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
 import { AngularFireStorage } from '@angular/fire/storage';
@@ -14,6 +14,9 @@ import { DataService } from 'src/app/util/data.service';
   styleUrls: ['./registro-restaurautes.component.scss']
 })
 export class RegistroRestaurautesComponent implements OnInit {
+
+  @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
+  imagenMin: File;
 
   private restaurante: any = {};
 
@@ -36,6 +39,12 @@ export class RegistroRestaurautesComponent implements OnInit {
 
   onChange(e){
     this.imagen = e.target.files[0];
+    this.imagen = e.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
   }
 
 

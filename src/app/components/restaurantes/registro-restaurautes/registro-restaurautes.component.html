@@ -8,6 +8,7 @@
         <input class="input-txt" type="text" placeholder="Zona:" formControlName = "zona">
 
         <label for="logo">Selecciona un logo:</label>
+        <img alt="img-evento" [src]="imagenMin">
         <input id="logo" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)">
 
         <input class="input-btn" type="submit">

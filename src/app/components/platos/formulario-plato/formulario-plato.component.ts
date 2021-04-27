@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -15,6 +15,9 @@ import { ComidaService } from 'src/app/service/comida.service';
   styleUrls: ['./formulario-plato.component.scss']
 })
 export class FormularioPlatoComponent implements OnInit {
+
+  @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
+  imagenMin: File;
 
   categorias: Array<CategoriaI>;
   restaurantes = [];
@@ -43,6 +46,12 @@ export class FormularioPlatoComponent implements OnInit {
 
   onChange(e){
     this.imagen = e.target.files[0];
+    this.imagen = e.target.files[0];
+    const fr = new FileReader();
+    fr.onload = (evento: any) => {
+      this.imagenMin = evento.target.result;
+    };
+    fr.readAsDataURL(this.imagen);
   }
 
   registrarPlato(){
