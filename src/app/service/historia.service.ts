@@ -7,7 +7,7 @@ import { HistoriaI } from '../model/historia_i';
 })
 export class HistoriaService {
 
-  public coleccionHistoria: AngularFirestoreCollection;
+  public coleccionHistoria: AngularFirestoreCollection<HistoriaI>;
 
   constructor(public angularFirestore: AngularFirestore) { 
     this.coleccionHistoria = angularFirestore.collection<HistoriaI>('histories');
@@ -20,5 +20,13 @@ export class HistoriaService {
 
   getAllHistoriasPorUsuario(idUsuario: string){
     return this.coleccionHistoria.ref.where("idUsuario", "==", idUsuario);
+  }
+
+  getHistoriaPorId(idHistoria: string){
+    return this.coleccionHistoria.doc(idHistoria).ref.get();
+  }
+
+  actualizarHistoriaPorId(idHistoria: string, historia: HistoriaI){
+    return this.coleccionHistoria.doc(idHistoria).set(historia);
   }
 }

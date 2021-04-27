@@ -4,26 +4,29 @@
     <form [formGroup] = "formularioPlatos" (ngSubmit) = "editarPlato()">
 
         <label>Nombre: </label>
-        <input class="input-txt" type="text" placeholder="Nombre: " formControlName = "nombre">
+        <input class="input-txt" type="text" formControlName = "nombre" [ngModel] = "plato.data().food_name">
 
         <label>Categoría: </label>
         <select class="input-txt" formControlName = "categoria" name="Categoria">
-            <option value="{{categoria.category_name}}" *ngFor="let categoria of categorias">{{categoria.category_name}}</option>
-            <option value="" selected hidden>fdsdafsdsda</option>
+            <option value="{{categoria.category_name}}" *ngFor="let categoria of categorias">
+                {{categoria.category_name}}
+            </option>
+            <option value="" selected hidden>{{plato.data().food_category}}</option>
         </select>
 
         <label>Descripción:</label>
-        <input class="input-txt" type="text" placeholder="Descripción: " formControlName = "descripcion">
+        <input class="input-txt" type="text" [ngModel] = "plato.data().food_description" formControlName = "descripcion">
 
         <label>Costo:</label>
-        <input class="input-txt" type="number" placeholder="Costo: " formControlName = "costo">
+        <input class="input-txt" type="number" [ngModel]="plato.data().food_cost" formControlName = "costo">
 
         <label for="image">Imagen:</label>
-        <img src="" alt="img-plato">
-        <input id="image" type="file" accept=".png, .jpg, .gif" (change) = "onChange($event)" formControlName = "imagen">
+        <img *ngIf="imagen == null" src="{{plato.data().food_image}}" alt="img-plato">
+        <img *ngIf="imagen != null" alt="img-plato" [src]="imagenMin">
+        <input id="image" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)">
 
 
         <input class="input-btn" type="submit">
     </form>
-    <a href="tablero-cuenta">¡Regresar!</a>  
+    <a href="tablero-cuenta">¡Regresar!</a> 
 </div>

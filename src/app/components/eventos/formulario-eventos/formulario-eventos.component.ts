@@ -51,6 +51,7 @@ export class FormularioEventosComponent implements OnInit {
           this.evento['event_location'] = lugar;
           this.evento['event_date'] = fecha +" "+ hora;
           this.evento['event_date_create'] = this.authService.transformDate(this.fecha_actual);
+          this.evento['event_state'] = true;
           this.crearEvento(this.evento, this.imagen);
         },err => alert('problema al obtener el usuario autenticado')
       );

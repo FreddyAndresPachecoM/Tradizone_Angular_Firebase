@@ -26,8 +26,10 @@ export class ComidaService {
     return this.coleccionComida.doc(idPlato).ref.get();
   }
 
-
-
+  editarPlatoPorId(idPlato: string, plato: PlatoI){
+    return this.coleccionComida.doc(idPlato).set(plato);
+  }
+  
   deleteComida(comida){
     this.comidaDoc = this.angularFirestore.doc<PlatoI>('food/'+comida.id);
     this.comidaDoc.delete();

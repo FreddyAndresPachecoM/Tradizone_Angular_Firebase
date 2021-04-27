@@ -6,6 +6,7 @@ export interface EventoI{
     event_location: string;
     event_title: string;
     event_url_image: string;
+    event_state: boolean;
 
     /** Relaciones --------- */
     idUsuario: string;

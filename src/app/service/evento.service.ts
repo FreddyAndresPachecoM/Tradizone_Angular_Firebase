@@ -7,7 +7,7 @@ import { EventoI } from '../model/evento_i';
 })
 export class EventoService {
 
-  public coleccionEvento: AngularFirestoreCollection;
+  public coleccionEvento: AngularFirestoreCollection<EventoI>;
 
   constructor(public angularFirestore: AngularFirestore) {
     this.coleccionEvento = angularFirestore.collection<EventoI>('events');
@@ -20,4 +20,13 @@ export class EventoService {
   getAllEventoPorUsuario(idUsuario: string){
     return this.coleccionEvento.ref.where("idUsuario", "==", idUsuario);
   }
+
+  getEventoPorId(idEvento: string){
+    return this.coleccionEvento.doc(idEvento).ref.get();
+  }
+
+  editarEventoPorId(idEvento: string, evento: EventoI){
+    return this.coleccionEvento.doc(idEvento).set(evento);
+  }
+
 }
