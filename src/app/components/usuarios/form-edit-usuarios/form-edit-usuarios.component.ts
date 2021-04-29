@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class FormEditUsuariosComponent implements OnInit {
 
-  private idUsuario: string;
+  private uid: string;
   private usuarioUpdate: any = {};
   
   usuario: any;
@@ -30,9 +30,9 @@ export class FormEditUsuariosComponent implements OnInit {
       this.usuarioUpdate['uid'] = this.usuario.data().idUsuario;
       this.usuarioUpdate['email'] = this.formularioUsuario.get('correo').value;
       this.usuarioUpdate['displayName'] = this.formularioUsuario.get('nombre').value;
-      this.usuarioUpdate['password'] = this.formularioUsuario.get('contrasena').value;
+      this.usuarioUpdate['password'] = this.formularioUsuario.get('password').value;
       
-      this.usuarioService.editarUsuario(this.idUsuario, this.usuarioUpdate);
+      this.usuarioService.editarUsuario(this.uid, this.usuarioUpdate);
       alert("Usuario actualizado!");
       this.router.navigate(['/configuracion-cuenta']);
 
@@ -42,8 +42,9 @@ export class FormEditUsuariosComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this.activatedRoute.paramMap.subscribe(params => this.idUsuario = params.get('idUsuario'));
-    await (await this.usuarioService.getUsuarioPorId(this.idUsuario).get().
+    await this.activatedRoute.paramMap.subscribe(params => this.uid = params.get('uid'));
+    await this.authService.getUsuarioLogeado().then(
+      data => this.usuarioService.getUsuarioPorId(this.uid).get().
     then((querySnapshot) => querySnapshot.forEach(
       (doc) => {
         this.usuario = doc;

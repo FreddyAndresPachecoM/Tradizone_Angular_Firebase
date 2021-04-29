@@ -1,10 +1,10 @@
 <p>form-edit-usuarios works!</p>
 <div class="contenedor-principal">
-    <h1>Registro de Usuarios</h1>
+    <h1>Actualización de Usuarios</h1>
     <form [formGroup] = "formularioUsuario"  (ngSubmit) = "actualizarUsuario()">
         <input class="input-txt" type="text" placeholder="Nombres:" [(ngModel)]="usuario.data().displayName" formControlName = "nombre">
         <input class="input-txt" type="email" placeholder="Correo:" [(ngModel)]="usuario.data().email" formControlName = "correo">
-        <input class="input-txt" type="password" placeholder="Contraseña:" [(ngModel)]="usuario.data().contrasena" formControlName = "contrasena">
+        <input class="input-txt" type="password" placeholder="Contraseña:" [(ngModel)]="usuario.data().password" formControlName = "password">
         <input class="input-btn" type="submit">
     </form>
     <a href="configuracion-cuenta">¡Regresar!</a>

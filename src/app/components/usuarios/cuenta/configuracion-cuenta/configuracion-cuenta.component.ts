@@ -79,11 +79,16 @@ export class ConfiguracionCuentaComponent implements OnInit {
       this.router.navigate([`/historia-edit/${idData}`]);
   }
 
-  eliminarDatos(plato, tipo: number): void {
+  eliminarDatos(objeto, tipo: number): void {
     if(tipo == 1){
-      this.platoService.deleteComida(plato);
-      alert(plato.user_id);
+      this.platoService.deleteComida(objeto);
+    }else if(tipo == 2){
+      this.eventoService.deleteEvento(objeto);
+    }else if(tipo == 3){
+      this.historiaService.deleteHistoria(objeto);
     }
+
+    this.router.navigate([`/configuracion-cuenta`]);
     
   }
 

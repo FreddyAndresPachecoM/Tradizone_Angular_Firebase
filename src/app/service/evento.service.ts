@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { EventoI } from '../model/evento_i';
 
 @Injectable({
@@ -7,6 +7,7 @@ import { EventoI } from '../model/evento_i';
 })
 export class EventoService {
 
+  public eventoDoc : AngularFirestoreDocument<EventoI>;
   public coleccionEvento: AngularFirestoreCollection<EventoI>;
 
   constructor(public angularFirestore: AngularFirestore) {
@@ -27,6 +28,11 @@ export class EventoService {
 
   editarEventoPorId(idEvento: string, evento: EventoI){
     return this.coleccionEvento.doc(idEvento).set(evento);
+  }
+
+  deleteEvento(evento){
+    this.eventoDoc = this.angularFirestore.doc<EventoI>('events/'+evento.id)
+    this.eventoDoc.delete();
   }
 
 }
