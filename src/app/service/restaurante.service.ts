@@ -26,4 +26,8 @@ export class RestauranteService {
     return this.coleccionRestaurante.doc(idRestaurante).set(restaurante);
   }
 
+  getRestauranteById(idRestaurante: string){
+    return this.coleccionRestaurante.doc(idRestaurante).ref.get();
+  }
+
 }

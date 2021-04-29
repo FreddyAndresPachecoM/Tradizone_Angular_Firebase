@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { ComidaService } from 'src/app/service/comida.service';
 import { EventoService } from 'src/app/service/evento.service';
@@ -22,7 +22,18 @@ export class ConfiguracionCuentaComponent implements OnInit {
 
   constructor(private restaurantesService: RestauranteService, private authService: AuthService, private usuarioService: UsuarioService,
               private router:Router, private platoService:ComidaService, private eventoService: EventoService,
-              private historiaService:HistoriaService) { }
+              private historiaService:HistoriaService) { 
+
+                router.events.subscribe( event => {
+
+                  if (event instanceof NavigationEnd){
+                    if (event.url === '/blank'){
+                      this.router.navigate(['/configuracion-cuenta']);
+                    }
+                  }
+                }
+                )
+              }
 
 
 
@@ -88,7 +99,7 @@ export class ConfiguracionCuentaComponent implements OnInit {
       this.historiaService.deleteHistoria(objeto);
     }
 
-    this.router.navigate([`/configuracion-cuenta`]);
+    this.router.navigate(['blank']);
     
   }
 

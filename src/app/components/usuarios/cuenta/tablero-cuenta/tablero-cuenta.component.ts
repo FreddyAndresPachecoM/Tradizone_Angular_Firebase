@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { ComidaService } from 'src/app/service/comida.service';
 import { EventoService } from 'src/app/service/evento.service';
@@ -19,9 +19,26 @@ export class TableroCuentaComponent implements OnInit {
   listaEventos = new Array<any>();
   listaHistorias= new Array<any>();
 
+  platoEdit: any = {};
+  eventoEdit: any = {};
+  historiaEdit: any = {};
+
   constructor(private restaurantesService: RestauranteService, private authService: AuthService, private usuarioService: UsuarioService,
               private router: Router, private platoService: ComidaService, private eventoService: EventoService,
-              private historiaService:HistoriaService) { }
+              private historiaService:HistoriaService) { 
+
+                router.events.subscribe( event => {
+
+                  if (event instanceof NavigationEnd){
+                    if (event.url === '/blank'){
+                      this.router.navigate(['/tablero-cuenta']);
+                    }
+                  }
+                }
+
+                )
+
+              }
 
 
   async ngOnInit(){
@@ -71,16 +88,42 @@ export class TableroCuentaComponent implements OnInit {
       this.router.navigate([`/historia-edit/${idData}`]);
   }
 
-  eliminarDatos(objeto, tipo: number): void {
+  eliminarDatos(objeto: any , tipo: number): void {
     if(tipo == 1){
-      this.platoService.deleteComida(objeto);
+      this.platoEdit['food_category']=objeto.data().food_category;
+      this.platoEdit['food_cost']=objeto.data().food_cost;
+      this.platoEdit['food_description']=objeto.data().food_description;
+      this.platoEdit['food_image']=objeto.data().food_image;
+      this.platoEdit['food_name']=objeto.data().food_name;
+      this.platoEdit['food_state']=false;
+
+      this.platoEdit['restaurantId']=objeto.data().restaurantId;
+
+      this.platoService.editarPlatoPorId(objeto.id, this.platoEdit);
     }else if(tipo == 2){
-      this.eventoService.deleteEvento(objeto);
+      this.eventoEdit['event_date']=objeto.data().event_date;
+      this.eventoEdit['event_date_create']=objeto.data().event_date_create;
+      this.eventoEdit['event_description']=objeto.data().event_description;
+      this.eventoEdit['event_location']=objeto.data().event_location;
+      this.eventoEdit['event_title']=objeto.data().event_title;
+      this.eventoEdit['event_url_image']=objeto.data().event_url_image;
+      this.eventoEdit['event_state']=false;
+
+      this.eventoEdit['idUsuario']=objeto.data().idUsuario;
+
+      this.eventoService.editarEventoPorId(objeto.id, this.eventoEdit);
     }else if(tipo == 3){
-      this.historiaService.deleteHistoria(objeto);
+      this.historiaEdit['history_description']=objeto.data().history_description;
+      this.historiaEdit['history_title']=objeto.data().history_title;
+      this.historiaEdit['history_url_image']=objeto.data().history_url_image;
+      this.historiaEdit['history_state']=false;
+
+      this.historiaEdit['idUsuario']=objeto.data().idUsuario;
+
+      this.historiaService.actualizarHistoriaPorId(objeto.id, this.historiaEdit);
     }
 
-    this.router.navigate([`/tablero-cuenta`]);
+    this.router.navigate(['blank']);
     
   }
 

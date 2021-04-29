@@ -34,4 +34,8 @@ export class ComidaService {
     this.comidaDoc = this.angularFirestore.doc<PlatoI>('food/'+comida.id);
     this.comidaDoc.delete();
   }
+
+  getPlatosByEstado(estado: boolean){
+    return this.coleccionComida.ref.where("food_state", "==", estado);
+  }
 }

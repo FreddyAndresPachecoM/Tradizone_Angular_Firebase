@@ -40,25 +40,26 @@ export class FormEditRestaurantesComponent implements OnInit {
   async ngOnInit() {
     
     await this.activatedRoute.paramMap.subscribe(params => this.idRestaurante = params.get('idRestaurante'));
-    await this.authService.getUsuarioLogeado().then(
-      data => this.restauranteService.getRestaurantePorUsuario(this.idRestaurante).get().
-      then((querySnapshot) => querySnapshot.forEach(
+
+    await this.restauranteService.getRestauranteById(this.idRestaurante).
+      then(
         (doc) => {
           this.restaurante = doc;
-  
+          
         }
-      )
-    )); 
+      
+    ); 
   }
 
   actualizarRestaurante(){
-    alert("actualizar restaurante");
     if (this.formularioRestaurante.valid){
       this.restauranteUpdate['restaurant_description'] = this.formularioRestaurante.get('descripcion').value;
       this.restauranteUpdate['restaurant_location'] = this.formularioRestaurante.get('direccion').value;
       this.restauranteUpdate['restaurant_name'] = this.formularioRestaurante.get('nombre').value;
       this.restauranteUpdate['restaurant_phone'] = this.formularioRestaurante.get('telefono').value;
       this.restauranteUpdate['restaurant_zone'] = this.formularioRestaurante.get('zona').value;
+      this.restauranteUpdate['user_id'] = this.restaurante.data().user_id;
+      
       if(this.imagen==null){
         this.restauranteUpdate['restaurant_image'] = this.restaurante.data().restaurant_image;
         this.restauranteService.editarRestaurantePorId(this.idRestaurante, this.restauranteUpdate);

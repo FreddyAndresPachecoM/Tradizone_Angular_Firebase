@@ -17,7 +17,7 @@
             <p> Nombre: <span>{{restaurante.data().restaurant_name.toUpperCase()}}</span> </p>
             <p> Descripción: <span>{{restaurante.data().restaurant_description}}</span> </p> 
             <p> Dirección: <span>{{restaurante.data().restaurant_location}}</span></p>
-            <button class="btn-editar"  (click)="editarRestaurante([restaurante.data().user_id])" > <i class="far fa-edit"></i>Editar</button>
+            <button class="btn-editar"  (click)="editarRestaurante(restaurante.id)" > <i class="far fa-edit"></i>Editar</button>
         </div>
     </div>
     
