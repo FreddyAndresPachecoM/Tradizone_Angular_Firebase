@@ -14,6 +14,8 @@ import { FormularioHistoriasComponent } from './components/historias/formulario-
 import { FormularioEditPlatoComponent } from './components/platos/formulario-edit-plato/formulario-edit-plato.component';
 import { FormularioEditEventoComponent } from './components/eventos/formulario-edit-evento/formulario-edit-evento.component';
 import { FormularioEditHistoriaComponent } from './components/historias/formulario-edit-historia/formulario-edit-historia.component';
+import { FormEditUsuariosComponent } from './components/usuarios/form-edit-usuarios/form-edit-usuarios.component';
+import { FormEditRestaurantesComponent } from './components/restaurantes/form-edit-restaurantes/form-edit-restaurantes.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
   { path: 'plato-edit/:idPlato', component: FormularioEditPlatoComponent},
   { path: 'evento-edit/:idEvento', component: FormularioEditEventoComponent},
   { path: 'historia-edit/:idHistoria', component: FormularioEditHistoriaComponent},
+  { path: 'usuario-edit/:uid', component: FormEditUsuariosComponent},
+  { path: 'restaurante-edit/:idRestaurante', component:FormEditRestaurantesComponent},
   { path: 'tablero-cuenta', component: TableroCuentaComponent},
   { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},
   { path: 'eventos', component: EventosComponent},

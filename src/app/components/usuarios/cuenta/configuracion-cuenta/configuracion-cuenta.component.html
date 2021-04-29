@@ -22,11 +22,6 @@
     </div>
     
     <div class="cuerpo">
-
-        <p *ngIf="listaPlatos.length == 0">
-            ¡Aun no tienes platos para presentar! <a (click)="agregarDatos(1)"> ¡Agregar un Plato!</a>
-        </p>
-
         <!-- ----------------- Platos  ----------------- -->
         <div *ngIf="listaPlatos.length > 0" >
             <h2>Platos</h2>

@@ -1,0 +1,18 @@
+<div class="contenedor-principal">
+    <h1>Actualización de Restaurante</h1>
+    <form [formGroup] = "formularioRestaurante"  (ngSubmit) = "actualizarRestaurante()">
+        <input class="input-txt" type="text" formControlName = "nombre" [(ngModel)] = "restaurante.data().restaurant_name">
+        <input class="input-txt" type="text" formControlName = "descripcion" [(ngModel)] = "restaurante.data().restaurant_description">
+        <input class="input-txt" type="text" formControlName = "direccion" [(ngModel)] = "restaurante.data().restaurant_location">
+        <input class="input-txt" type="number" formControlName = "telefono" [(ngModel)] = "restaurante.data().restaurant_phone">
+        <input class="input-txt" type="text" formControlName = "zona" [(ngModel)] = "restaurante.data().restaurant_zone">
+
+        <label for="logo">Selecciona un logo:</label>
+        <img *ngIf="imagen == null" src="{{restaurante.data().restaurant_image}}" alt="img-restaurante">
+        <img *ngIf="imagen != null" alt="img-restaurante" [src]="imagenMin">
+        <input id="logo" type="file" accept=".png, .jpg, .jpeg, .gif" (change) = "onChange($event)">
+
+        <input class="input-btn" type="submit">
+    </form>
+    <a href="/configuracion-cuenta">Regresar</a>
+</div>

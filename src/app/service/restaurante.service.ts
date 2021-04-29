@@ -21,4 +21,9 @@ export class RestauranteService {
   getRestaurantePorUsuario(idUsuario: string){
     return this.coleccionRestaurante.ref.where("user_id", "==", idUsuario);
   }
+
+  editarRestaurantePorId(idRestaurante: string, restaurante: RestauranteI){
+    return this.coleccionRestaurante.doc(idRestaurante).set(restaurante);
+  }
+
 }

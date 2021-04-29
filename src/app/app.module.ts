@@ -39,6 +39,8 @@ import { FormularioHistoriasComponent } from './components/historias/formulario-
 import { FormularioEditPlatoComponent } from './components/platos/formulario-edit-plato/formulario-edit-plato.component';
 import { FormularioEditHistoriaComponent } from './components/historias/formulario-edit-historia/formulario-edit-historia.component';
 import { FormularioEditEventoComponent } from './components/eventos/formulario-edit-evento/formulario-edit-evento.component';
+import { FormEditUsuariosComponent } from './components/usuarios/form-edit-usuarios/form-edit-usuarios.component';
+import { FormEditRestaurantesComponent } from './components/restaurantes/form-edit-restaurantes/form-edit-restaurantes.component';
 
 
 @NgModule({
@@ -60,7 +62,9 @@ import { FormularioEditEventoComponent } from './components/eventos/formulario-e
     FormularioHistoriasComponent,
     FormularioEditPlatoComponent,
     FormularioEditHistoriaComponent,
-    FormularioEditEventoComponent
+    FormularioEditEventoComponent,
+    FormEditUsuariosComponent,
+    FormEditRestaurantesComponent
 
   ],
   imports: [

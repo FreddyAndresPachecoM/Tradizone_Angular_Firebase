@@ -22,4 +22,8 @@ export class UsuarioService {
   getUsuarioPorId(idUsuario: string){
     return this.coleccionUsuario.ref.where("uid", "==", idUsuario);
   }
+
+  editarUsuario(idUsuario: string, usuario: UsuarioI){
+    return this.coleccionUsuario.doc(idUsuario).set(usuario)
+  }
 }

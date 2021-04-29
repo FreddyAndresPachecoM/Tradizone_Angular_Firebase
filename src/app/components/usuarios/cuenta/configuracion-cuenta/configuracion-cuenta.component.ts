@@ -61,26 +61,14 @@ export class ConfiguracionCuentaComponent implements OnInit {
       )));
   }
 
-  editarUsuario(uid: string){
-    alert("ID: "+uid);
+  editarUsuario(idData: string){
+    this.router.navigate([`/usuario-edit/${idData}`]);
   }
 
-  editarRestaurante(id: string){
-    alert("ID: "+id);
+  editarRestaurante(idData: string){
+    this.router.navigate([`/restaurante-edit/${idData}`]);
   }
 
-  agregarDatos(tipo: number): void {
-    if(tipo == 1)
-      this.router.navigate([`/plato-registro/${this.restaurante.id}`]);
-    else if(tipo == 2)
-      this.authService.getUsuarioLogeado().then(
-        data => this.router.navigate([`/evento-registro/${data.uid}`])
-      );
-    else if(tipo == 3)
-      this.authService.getUsuarioLogeado().then(
-        data => this.router.navigate([`/historia-registro/${data.uid}`])
-      );
-  }
 
   editarDatos(idData: string, tipo: number): void {
     if(tipo == 1)
