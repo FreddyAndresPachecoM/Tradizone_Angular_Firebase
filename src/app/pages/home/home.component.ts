@@ -35,11 +35,6 @@ export class HomeComponent implements OnInit {
       await this.fbstore.collection("food").snapshotChanges().subscribe(data=>{
         this.comidas = data.map(
           result => {
-            this.restauranteService.getRestauranteById(result.payload.doc.data()["restaurantId"]).then(
-              (doc) => {
-                this.nombre_restaurante = doc.data().restaurant_name
-              }
-            )
             return{
             
             food_id : result.payload.doc.id,
@@ -49,8 +44,7 @@ export class HomeComponent implements OnInit {
             food_image : result.payload.doc.data()["food_image"],
             food_name : result.payload.doc.data()["food_name"],
             food_state: result.payload.doc.data()["food_state"],
-            food_restaurant : this.nombre_restaurante
-            //food_restaurant : result.payload.doc.data()["food_restaurant"]
+            food_restaurant : result.payload.doc.data()["food_restaurant"]
             }
             
           }
@@ -61,16 +55,6 @@ export class HomeComponent implements OnInit {
     }
     
   }
-
-  /*async getRestaurante(idRestaurante: string): string{
-    await this.restauranteService.getRestauranteById(idRestaurante).then(
-      (doc) => {
-        
-        this.nombre_restaurante = doc.data().restaurant_name;
-      }
-    )
-    return this.nombre_restaurante;
-  }*/
 
 
   getRestaurantes(){

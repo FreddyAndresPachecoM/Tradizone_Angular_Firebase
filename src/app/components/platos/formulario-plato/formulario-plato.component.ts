@@ -8,6 +8,7 @@ import { CategoriaI } from 'src/app/model/categoria_i';
 import { RestauranteI } from 'src/app/model/restaurante_i';
 import { AuthService } from 'src/app/service/auth.service';
 import { ComidaService } from 'src/app/service/comida.service';
+import { RestauranteService } from 'src/app/service/restaurante.service';
 
 @Component({
   selector: 'app-formulario-plato',
@@ -21,6 +22,7 @@ export class FormularioPlatoComponent implements OnInit {
 
   categorias: Array<CategoriaI>;
   restaurantes = [];
+  food_restaurant: string;
 
   private comida: any = {};
 
@@ -29,7 +31,7 @@ export class FormularioPlatoComponent implements OnInit {
   private idRestaurante: string;
 
   constructor(private fbstore: AngularFirestore, private comidaService: ComidaService, private storage: AngularFireStorage, 
-              private authService: AuthService, private activatedRoute: ActivatedRoute) { }
+              private authService: AuthService, private activatedRoute: ActivatedRoute, private restauranteService: RestauranteService) { }
 
   platoRegistroForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
@@ -41,6 +43,7 @@ export class FormularioPlatoComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => this.idRestaurante = params.get('idRestaurante'));
+    this.getRestaurante();
     this.getCategories();
   }
 
@@ -66,6 +69,7 @@ export class FormularioPlatoComponent implements OnInit {
           this.comida['food_cost'] = costo;
           this.comida['restaurantId'] = this.idRestaurante;
           this.comida['food_state'] = true;
+          this.comida['food_restaurant'] = this.food_restaurant
           this.crearPlato(this.comida, this.imagen)
         },
         err => alert('¡A ocurrido un problema al obtener el usuario autenticado!')
@@ -101,6 +105,12 @@ export class FormularioPlatoComponent implements OnInit {
           }
         );
       }
+    );
+  }
+
+  getRestaurante(){
+    this.restauranteService.getRestauranteById(this.idRestaurante).then(
+      doc => this.food_restaurant = doc.data().restaurant_name
     );
   }
 }

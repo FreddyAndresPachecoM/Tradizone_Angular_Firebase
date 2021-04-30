@@ -16,6 +16,7 @@ import { FormularioEditEventoComponent } from './components/eventos/formulario-e
 import { FormularioEditHistoriaComponent } from './components/historias/formulario-edit-historia/formulario-edit-historia.component';
 import { FormEditUsuariosComponent } from './components/usuarios/form-edit-usuarios/form-edit-usuarios.component';
 import { FormEditRestaurantesComponent } from './components/restaurantes/form-edit-restaurantes/form-edit-restaurantes.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   { path: 'home',  component: HomeComponent},
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'tablero-cuenta', component: TableroCuentaComponent},
   { path: 'configuracion-cuenta', component: ConfiguracionCuentaComponent},
   { path: 'eventos', component: EventosComponent},
+  { path: 'about', component: AboutComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
