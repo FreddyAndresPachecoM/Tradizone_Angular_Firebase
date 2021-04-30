@@ -217,16 +217,16 @@ body {
   /* fonts  */
 @import url('https://fonts.googleapis.com/css?family=Abel|Aguafina+Script|Artifika|Athiti|Condiment|Dosis|Droid+Serif|Farsan|Gurajada|Josefin+Sans|Lato|Lora|Merriweather|Noto+Serif|Open+Sans+Condensed:300|Playfair+Display|Rasa|Sahitya|Share+Tech|Text+Me+One|Titillium+Web');
 
-body {
-background: #DFC2F2;
-	background-image: linear-gradient( 135deg, #7bd1eb 10%, #326bc0 100%);
+body{
+  background: #ffff;
+	//background-image: linear-gradient( 135deg, #7bd1eb 10%, #326bc0 100%);
 	background-attachment: fixed;	
 	background-size: cover;
 	}
 
 #container{
 	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
-	background: rgba(255, 255, 255, 0.90);
+	background-image: linear-gradient( 135deg, #7bd1eb 10%, #326bc0 100%);
 	text-align: center;
 	border-radius: 5px;
 	overflow: hidden;
@@ -256,7 +256,7 @@ background: #DFC2F2;
 	display: inline-block;
 	position: relative;
 	font-size: 34px;
-	color: #344055;
+	color: black;
 	margin: 0;
 	
 }
@@ -281,8 +281,8 @@ background: #DFC2F2;
 
 
 @keyframes chan-sh {
-	from  {content: 'Evento';}
-	to  {content: 'Miralo!';}
+	from  {content: 'Nuestra';}
+	to  {content: 'Gastronomía!';}
 	
 }
 
@@ -300,7 +300,7 @@ background: #DFC2F2;
 	font-family: 'Farsan', cursive;
 	text-align: center;
 	font-size: 20px;
-	color: #7d7d7d;
+	color: #202020;
 	
 }
 
@@ -356,7 +356,7 @@ background: #DFC2F2;
 #container img {width: 100%;height: 100%;}
 
 .info {
-    background: rgba(27, 26, 26, 0.9);
+    background: rgb(27, 26, 26);
     font-family: 'Farsan', cursive;
     transition: all 0.3s ease-out;
     transform: translateX(-100%);
