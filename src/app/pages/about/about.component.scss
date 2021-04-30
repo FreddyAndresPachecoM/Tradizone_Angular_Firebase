@@ -1,0 +1,29 @@
+div {
+    width: 70%;
+    margin: 40px auto;
+}
+
+div > h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color:  rgb(3, 56, 105);
+    text-align: center;
+    margin: 20px auto;
+}
+
+div > h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color:  rgb(3, 56, 105);
+    margin: 30px 40px;
+}
+
+div > p {
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: justify;
+    margin: 20px;
+    background-color: rgb(205, 222, 226);
+    line-height: 30px;
+}
