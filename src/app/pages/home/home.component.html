@@ -1,5 +1,5 @@
 
-<p style="width: 100%; text-align: center; margin-top: 30px; font-size: 30px; font-weight: bold;">Home component</p>
+<p style="width: 100%; text-align: center; margin-top: 30px; font-size: 30px; font-weight: bold;">Bienvenido</p>
 <div>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400" rel="stylesheet">
@@ -22,46 +22,46 @@
         </div>        
     </body>
     
-    <div class="bodyColor">
-        <br>
-        <div class="contenedorBody" *ngFor="let food of comidas | filter:filterPost">
-            <div class="bodyCardContainer">
-                <div class="headerBody">
-                    <a href="#">
-                        <img class="imgBody" src="{{food.food_image}}" width="250">
-                    </a>                
-                </div>
-                <div class="descripcionBody">
-                    <h2>{{food.food_name}}</h2>
-                    <p>{{food.food_description}}</p>
-                    <h3 class="restauranteColor">{{food.food_restaurant}}</h3>
-                </div>
-            </div>
-        </div>
-        <br>
-    </div>
-    
-    <div class="bodyColor">
-        <br>
-        <div class="contenedorBody" *ngFor="let restaurant of restaurantes">
-            <div class="bodyCardContainer">
-                <div class="headerBody">
-                    <h3><i class="fas fa-phone-alt"></i> {{restaurant.restaurant_phone}}</h3>
-                    <a href="#">
-                        <img class="imgBody" src="{{restaurant.restaurant_image}}" width="250">
-                    </a>                
-                </div>
-                <div class="descripcionBody">
-                    <h2>{{restaurant.restaurant_name}}</h2>
-                    <p>{{restaurant.restaurant_description}}</p>
-                    <h3 class="restauranteColor"><i class="fas fa-map-marker-alt"></i> {{restaurant.restaurant_zone}}</h3>
-                    <h3 class="restauranteColor">{{restaurant.restaurant_location}}</h3>
+    <body>
+        <div id="container" *ngFor="let food of comidas | filter:filterPost">	
+        
+            <div class="product-details">
                     
-                </div>
+                <h1>{{food.food_name}}</h1>
+                    
+                <p class="information">{{food.food_description}}</p>
+                <p class="information"><i class="fas fa-map-marker-alt"></i>{{food.food_restaurant}}</p>                    
+                        
             </div>
-        </div>
-        <br>
-    </div>
+                
+            <div class="product-image">
+                
+                <img src="{{food.food_image}}" alt="Tradizone">
+            </div>        
+        </div>    
+    </body>
+
+    <body>
+        <div id="container" *ngFor="let restaurant of restaurantes">	
+        
+            <div class="product-details">
+                    
+                <h1>{{restaurant.restaurant_name}}</h1>
+                    
+                <p class="information">{{restaurant.restaurant_description}}</p>
+                <p class="information"><i class="fas fa-map-marker-alt"></i>{{restaurant.restaurant_zone}}</p>
+                <p class="information">{{restaurant.restaurant_location}}</p>
+                <p class="information"><i class="fas fa-phone-alt"></i> {{restaurant.restaurant_phone}}</p>                    
+                        
+            </div>
+                
+            <div class="product-image">
+                
+                <img src="{{restaurant.restaurant_image}}" alt="Tradizone">
+            </div>        
+        </div>    
+    </body>
+
     <div class="bodyColor">
         <br>
         <div class="recetaContenedorBody" *ngFor="let receta of recetas">
@@ -84,5 +84,6 @@
         </div>
         <br>
     </div>
+
 
 </div>
