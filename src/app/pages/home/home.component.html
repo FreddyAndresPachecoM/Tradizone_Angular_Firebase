@@ -23,7 +23,8 @@
     </body>
     
     <body>
-        <div id="container" *ngFor="let food of comidas | filter:filterPost">	
+        <div  *ngFor="let food of comidas | filter:filterPost">
+        <div id="container" *ngIf = "food.food_state">	
         
             <div class="product-details">
                     
@@ -38,6 +39,7 @@
                 
                 <img src="{{food.food_image}}" alt="Tradizone">
             </div>        
+        </div>
         </div>    
     </body>
 
