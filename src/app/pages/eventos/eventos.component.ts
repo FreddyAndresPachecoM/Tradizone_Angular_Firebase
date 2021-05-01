@@ -28,6 +28,7 @@ export class EventosComponent implements OnInit {
               event_description : result.payload.doc.data()["event_description"],
               event_location : result.payload.doc.data()["event_location"],
               event_title : result.payload.doc.data()["event_title"],
+              event_state : result.payload.doc.data()["event_state"],
               event_url_image : result.payload.doc.data()["event_url_image"] 
             }
           }

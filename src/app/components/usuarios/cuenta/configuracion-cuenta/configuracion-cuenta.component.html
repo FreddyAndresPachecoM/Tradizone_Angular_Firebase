@@ -52,6 +52,7 @@
                 <thead>
                     <tr>
                         <th>Título</th>
+                        <th>Estado en cartelera</th>
                         <th>Editar</th>
                         <th>Eliminar permanentemente</th>
                     </tr>
@@ -59,6 +60,7 @@
                 <tbody>
                     <tr *ngFor="let evento of listaEventos">
                         <td>{{evento.data().event_title}}</td>
+                        <td>{{evento.data().event_state}}</td>
                         <td><button class="btn-editar"  (click)="editarDatos(evento.id, 2)" > <i class="far fa-edit"></i>Editar</button></td>
                         <td><button class="btn-eliminar" (click)="eliminarDatos(evento, 2)"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
                     </tr>
@@ -73,6 +75,7 @@
                 <thead>
                     <tr>
                         <th>Titulo</th>
+                        <th>Estado</th>
                         <th>Editar</th>
                         <th>Eliminar Permanentemente</th>
                     </tr>
@@ -80,6 +83,7 @@
                 <tbody>
                     <tr *ngFor="let historia of listaHistorias">
                         <td>{{historia.data().history_title}}</td>
+                        <td>{{historia.data().history_state}}</td>
                         <td><button class="btn-editar" (click)="editarDatos(historia.id, 3)"> <i class="far fa-edit"></i>Editar</button></td>
                         <td><button class="btn-eliminar" (click)="eliminarDatos(historia, 3)"> <i class="far fa-trash-alt"></i> Eliminar</button></td>
                     </tr>

@@ -13,7 +13,8 @@
     <input type="text" class="form-control input-txt" name="filterPost" placeholder="Escribelo aquí..." [(ngModel)]="filterPost">
 </div>
 
-<div class="container" *ngFor="let historia of historias | filter:filterPost">
+<div *ngFor="let historia of historias | filter:filterPost">
+<div class="container" *ngIf = "historia.history_state">
     <input type="checkbox" id="spoiler{{historia.history_id}}"/>
     <label for="spoiler{{historia.history_id}}"><h2>{{historia.history_title}}</h2></label>
     <div class="spoiler">
@@ -21,4 +22,5 @@
         <h3>{{historia.history_food_name}}</h3>    
         <p>{{historia.history_description}}</p>
     </div>
+</div>
 </div>

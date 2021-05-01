@@ -3,6 +3,7 @@ export class Historia{
     history_description: string;
     history_food_name: string;
     history_title: string;
+    history_state: boolean;
     history_user_name: string;
     history_url_image:string;
 }

@@ -2,7 +2,8 @@
     <p style="width: 100%; text-align: center; margin-top: 30px; font-size: 30px; font-weight: bold;">Nuestros eventos</p>
 </header>
 <body>
-    <div id="container" *ngFor="let evento of eventos">	
+    <div *ngFor="let evento of eventos">
+    <div id="container" *ngIf = "evento.event_state">	
 	
         <div class="product-details">
                 
@@ -30,5 +31,6 @@
             </div>
 
         </div>        
+    </div>
     </div>    
 </body>
